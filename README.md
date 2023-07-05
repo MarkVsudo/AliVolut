@@ -14,7 +14,7 @@ This project is an React-based frontend template leveraging React 18.2.0. Our fo
 First, clone the repository to your local machine with submodules:
 
 ```shell
-git clone --recurse-submodules https://github.com/[your-repository]/fe-template-react.git
+git clone --recurse-submodules git@ssh.dev.azure.com:v3/cleverpine/CP%20Internship%2007-2023/platform-ui
 cd fe-template-react
 ```
 
@@ -29,7 +29,7 @@ npm install
 Generate the services using the OpenAPI specifications:
 
 ```shell
-npm run generate:api
+npm run generate-all
 ```
 
 ## 🛠 Development server
