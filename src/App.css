@@ -616,7 +616,6 @@ body{
 
 .swiper {
     width: 20vw;
-    height: 45vh;
 }
   
   .swiper-slide {
@@ -628,7 +627,6 @@ body{
     color: var(--black);
     flex-direction: column;
     background-color: var(--white);
-
 }
   
   .swiper-slide img {
