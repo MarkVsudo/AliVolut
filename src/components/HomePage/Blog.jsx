@@ -1,8 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable import/no-unresolved */
 import '../../App.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards } from 'swiper/modules';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import crypto1 from '../../assets/crypto1.png';
 import crypto2 from '../../assets/crypto2.jpg';
 import crypto3 from '../../assets/crypto3.jpg';
@@ -35,12 +37,27 @@ const Blog = () => {
           >
             <SwiperSlide>
               <img src={crypto1} className="blogImg" />
+              <h2>Crypto Chronicles: Insights and Analysis</h2>
+              <h5>
+                Read more
+                <ArrowForwardIosIcon />{' '}
+              </h5>
             </SwiperSlide>
             <SwiperSlide>
               <img src={crypto2} className="blogImg" />
+              <h2>Blockchain Buzz: Exploring the Crypto World</h2>
+              <h5>
+                Read more
+                <ArrowForwardIosIcon />{' '}
+              </h5>
             </SwiperSlide>
             <SwiperSlide>
               <img src={crypto3} className="blogImg" />
+              <h2>Digital Currency Digest: Trends and Tips</h2>
+              <h5>
+                Read more
+                <ArrowForwardIosIcon />{' '}
+              </h5>
             </SwiperSlide>
           </Swiper>
         </div>
@@ -54,12 +71,27 @@ const Blog = () => {
           >
             <SwiperSlide>
               <img src={stocks1} className="blogImg" />
+              <h2>Stock Market Insights: Trends and Analysis</h2>
+              <h5>
+                Read more
+                <ArrowForwardIosIcon />{' '}
+              </h5>
             </SwiperSlide>
             <SwiperSlide>
               <img src={stocks2} className="blogImg" />
+              <h2>Investor's Corner: Unveiling Stock Secrets</h2>
+              <h5>
+                Read more
+                <ArrowForwardIosIcon />{' '}
+              </h5>
             </SwiperSlide>
             <SwiperSlide>
               <img src={stocks3} className="blogImg" />
+              <h2>Trading Talk: Navigating the Stock Market</h2>
+              <h5>
+                Read more
+                <ArrowForwardIosIcon />{' '}
+              </h5>
             </SwiperSlide>
           </Swiper>
         </div>
@@ -73,12 +105,27 @@ const Blog = () => {
           >
             <SwiperSlide>
               <img src={realEst1} className="blogImg" />
+              <h2>Property Prospects: Real Estate Insights and Trends</h2>
+              <h5>
+                Read more
+                <ArrowForwardIosIcon />{' '}
+              </h5>
             </SwiperSlide>
             <SwiperSlide>
               <img src={realEst2} className="blogImg" />
+              <h2>Homefront Hub: Exploring the Real Estate Market</h2>
+              <h5>
+                Read more
+                <ArrowForwardIosIcon />{' '}
+              </h5>
             </SwiperSlide>
             <SwiperSlide>
               <img src={realEst3} className="blogImg" />
+              <h2>The Realty Report: Insights for Property Investors</h2>
+              <h5>
+                Read more
+                <ArrowForwardIosIcon />{' '}
+              </h5>
             </SwiperSlide>
           </Swiper>
         </div>
