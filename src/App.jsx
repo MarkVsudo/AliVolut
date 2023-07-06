@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 import { useRef } from 'react';
 import ResponsiveAppBar from './components/HomePage/ResponsiveAppBar';
 import MainPage from './components/HomePage/MainPage';
@@ -8,6 +9,7 @@ import Blog from './components/HomePage/Blog';
 import ScrollUp from './components/HomePage/ScrollUp';
 import ScrollDiscover from './components/HomePage/ScrollDiscover';
 import './App.css';
+import Footer from './components/HomePage/Footer';
 
 const App = () => {
   const cardsSectionRef = useRef(null);
@@ -46,6 +48,7 @@ const App = () => {
       <div ref={blogSectionRef}>
         <Blog />
       </div>
+      <Footer></Footer>
     </>
   );
 };
