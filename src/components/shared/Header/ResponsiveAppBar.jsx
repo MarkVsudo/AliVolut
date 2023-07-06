@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
-import '../../App.css';
+import '../../../App.css';
 
 import { useState, useEffect } from 'react';
 
@@ -19,7 +19,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
-import MyLogo from '../../assets/alivolut-logo.svg';
+import MyLogo from '../../../assets/alivolut-logo.svg';
 
 const pages = ['Offerings', 'Subscriptions', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -64,6 +64,7 @@ const ResponsiveAppBar = ({
       onBlogClick();
     }
   };
+
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;

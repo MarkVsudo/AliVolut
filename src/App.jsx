@@ -1,15 +1,15 @@
 /* eslint-disable react/self-closing-comp */
 import { useRef } from 'react';
-import ResponsiveAppBar from './components/HomePage/ResponsiveAppBar';
+import ResponsiveAppBar from './components/shared/Header/ResponsiveAppBar';
 import MainPage from './components/HomePage/MainPage';
 import StartTransferringButton from './components/HomePage/StartTransferringButton';
 import CardsSection from './components/HomePage/CardsSection';
 import Subscription from './components/HomePage/Subscription';
 import Blog from './components/HomePage/Blog';
-import ScrollUp from './components/HomePage/ScrollUp';
+import ScrollUp from './components/shared/ScrollUp/ScrollUp';
 import ScrollDiscover from './components/HomePage/ScrollDiscover';
 import './App.css';
-import Footer from './components/HomePage/Footer';
+import Footer from './components/shared/Footer/Footer';
 
 const App = () => {
   const cardsSectionRef = useRef(null);

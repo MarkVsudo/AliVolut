@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import '../../App.css';
-import whiteLogo from '../../assets/Alivolut-white.png';
-import fbLogo from '../../assets/fbLogo.png';
-import twLogo from '../../assets/twLogo.png';
-import instaLogo from '../../assets/instaLogo.png';
-import bgLogo from '../../assets/bgLogo.png';
+import '../../../App.css';
+import whiteLogo from '../../../assets/Alivolut-white.png';
+import fbLogo from '../../../assets/fbLogo.png';
+import twLogo from '../../../assets/twLogo.png';
+import instaLogo from '../../../assets/instaLogo.png';
+import bgLogo from '../../../assets/bgLogo.png';
 
 const Footer = () => {
   return (
