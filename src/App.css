@@ -635,7 +635,8 @@ body{
 
   .swiper-slide h2 {
     font-size: 2rem;
-    height: 1.5rem;
+    /* height: max-content; */
+    margin-bottom: 2rem;
   }
 
   .swiper-slide p{
