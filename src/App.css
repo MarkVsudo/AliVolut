@@ -698,6 +698,11 @@ body{
 [class^="col"] a{
     font-size: 1rem;
     color: #6E6E6E;
+    transition: all 200ms ease-in-out;
+}
+
+[class^="col"] a:hover{
+    color: #cccaca;
 }
 
 .line{
@@ -723,6 +728,11 @@ body{
 .socialLogos{
     width: 2rem;
     margin-inline: .25rem;
+    transition: all 200ms ease-in-out;
+}
+
+.socialLogos:hover{
+    opacity: .7;
 }
 
 .bgFooter {
@@ -733,6 +743,7 @@ body{
 
 .bgFooter img{
     margin-right: .75rem;
+    border-radius: 5px;
 }
 
 .bgFooter span{
