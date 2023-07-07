@@ -7,12 +7,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import AppBarNotMainPage from '../shared/HeaderNotMainPage/AppBarNotMainPage';
 import RecentActorsIcon from '@mui/icons-material/RecentActors';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import SettingsIcon from '@mui/icons-material/Settings';
 import StyleIcon from '@mui/icons-material/Style';
 import LogoutIcon from '@mui/icons-material/Logout';
+import AppBarNotMainPage from '../shared/HeaderNotMainPage/AppBarNotMainPage';
 
 const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('accounts');
@@ -20,6 +20,8 @@ const ProfilePage = () => {
 
   const [profileName, setProfileName] = useState('');
   const [profileImage, setProfileImage] = useState('');
+  const [editedProfileName, setEditedProfileName] = useState('');
+
   // Load profile data from local storage on component mount
   useEffect(() => {
     const storedProfileName = localStorage.getItem('profileName');
@@ -42,6 +44,7 @@ const ProfilePage = () => {
 
   const handleEditButtonClick = () => {
     setIsEditModalOpen(true);
+    setEditedProfileName(profileName);
   };
 
   const handleModalClose = () => {
@@ -49,12 +52,12 @@ const ProfilePage = () => {
   };
 
   const handleSaveChanges = () => {
-    // Save the changes made in the modal
+    setProfileName(editedProfileName);
     setIsEditModalOpen(false);
   };
 
   const handleProfileNameChange = (e) => {
-    setProfileName(e.target.value);
+    setEditedProfileName(e.target.value);
   };
 
   const handleProfileImageChange = (e) => {
@@ -103,32 +106,32 @@ const ProfilePage = () => {
 
           <div className="listSettings">
             <div className="listSettingBlock">
+              <RecentActorsIcon className="profileIcons" />
               <button onClick={() => handleSectionClick('accounts')}>
-                Accounts <RecentActorsIcon className="profileIcons" />
+                Accounts
               </button>
-              <div className="listSettingBlock">
-                <button onClick={() => handleSectionClick('cards')}>
-                  Cards <StyleIcon className="profileIcons" />
-                </button>
-              </div>
-              <div className="listSettingBlock">
-                <button onClick={() => handleSectionClick('personal')}>
-                  Personal Information{' '}
-                  <PersonSearchIcon className="profileIcons" />
-                </button>
-              </div>
-              <div className="listSettingBlock">
-                {' '}
-                <button onClick={() => handleSectionClick('settings')}>
-                  Settings <SettingsIcon className="profileIcons" />
-                </button>
-              </div>
-              <div className="listSettingBlock">
-                {' '}
-                <button>
-                  Log Out <LogoutIcon className="profileIcons" />
-                </button>
-              </div>
+            </div>
+            <div className="listSettingBlock">
+              <StyleIcon className="profileIcons" />
+              <button onClick={() => handleSectionClick('cards')}>
+                Cards
+              </button>
+            </div>
+            <div className="listSettingBlock">
+              <PersonSearchIcon className="profileIcons" />
+              <button onClick={() => handleSectionClick('personal')}>
+                Personal Information
+              </button>
+            </div>
+            <div className="listSettingBlock">
+              <SettingsIcon className="profileIcons" />
+              <button onClick={() => handleSectionClick('settings')}>
+                Settings
+              </button>
+            </div>
+            <div className="listSettingBlock">
+              <LogoutIcon className="profileIcons" />
+              <button>Log Out</button>
             </div>
           </div>
         </aside>
@@ -153,7 +156,7 @@ const ProfilePage = () => {
           </Typography>
           <TextField
             label="Profile Name"
-            value={profileName}
+            value={editedProfileName}
             onChange={handleProfileNameChange}
             fullWidth
             sx={{ mb: 2 }}

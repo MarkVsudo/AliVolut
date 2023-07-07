@@ -20,18 +20,28 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import MyLogo from '../../../assets/alivolut-logo.svg';
+import { viravaDefault } from '../../../config/authConfig';
 
 const settings = [
   {
     label: 'Profile',
     onClick: () => {
       // Handle the click event for the "Profile" link
-      window.location.href = '/ProfilePage';
+      window.location.href = '/profile';
     }
   },
   'Account',
   'Dashboard',
-  'Logout'
+  {
+    label: 'Logout',
+    onClick: async () => {
+      try {
+        await viravaDefault.logout();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
 ];
 
 const AppBarNotMainPage = () => {
