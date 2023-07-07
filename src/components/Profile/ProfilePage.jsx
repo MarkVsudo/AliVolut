@@ -13,6 +13,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import StyleIcon from '@mui/icons-material/Style';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AppBarNotMainPage from '../shared/HeaderNotMainPage/AppBarNotMainPage';
+import { viravaDefault } from '../../config/authConfig';
 
 const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('accounts');
@@ -113,9 +114,7 @@ const ProfilePage = () => {
             </div>
             <div className="listSettingBlock">
               <StyleIcon className="profileIcons" />
-              <button onClick={() => handleSectionClick('cards')}>
-                Cards
-              </button>
+              <button onClick={() => handleSectionClick('cards')}>Cards</button>
             </div>
             <div className="listSettingBlock">
               <PersonSearchIcon className="profileIcons" />
@@ -131,7 +130,17 @@ const ProfilePage = () => {
             </div>
             <div className="listSettingBlock">
               <LogoutIcon className="profileIcons" />
-              <button>Log Out</button>
+              <button
+                onClick={async () => {
+                  try {
+                    await viravaDefault.logout();
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }}
+              >
+                Log Out
+              </button>
             </div>
           </div>
         </aside>
