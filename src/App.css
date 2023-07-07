@@ -830,6 +830,10 @@ body{
     color: var(--middle-gray);
 }
 
+.listSettings .listSettingBlock:nth-child(5){
+    margin-top: 12rem;
+}
+
 .profileMain{
     background-color: var(--lighter-gray);
 }

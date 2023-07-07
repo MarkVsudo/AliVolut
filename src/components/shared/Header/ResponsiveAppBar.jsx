@@ -21,6 +21,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import MyLogo from '../../../assets/alivolut-logo.svg';
+import { viravaDefault } from '../../../config/authConfig';
+
 
 const pages = ['Offerings', 'Subscriptions', 'Blog'];
 const settings = [
@@ -33,8 +35,18 @@ const settings = [
   },
   'Account',
   'Dashboard',
-  'Logout'
+  {
+    label: 'Logout',
+    onClick: async () => {
+      try {
+        await viravaDefault.logout();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
 ];
+
 
 const ResponsiveAppBar = ({
   onOfferingsClick,
