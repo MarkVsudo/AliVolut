@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
@@ -22,7 +23,18 @@ import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import MyLogo from '../../../assets/alivolut-logo.svg';
 
 const pages = ['Offerings', 'Subscriptions', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = [
+  {
+    label: 'Profile',
+    onClick: () => {
+      // Handle the click event for the "Profile" link
+      window.location.href = '/ProfilePage';
+    }
+  },
+  'Account',
+  'Dashboard',
+  'Logout'
+];
 
 const ResponsiveAppBar = ({
   onOfferingsClick,
@@ -64,7 +76,6 @@ const ResponsiveAppBar = ({
       onBlogClick();
     }
   };
-
 
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
@@ -208,9 +219,14 @@ const ResponsiveAppBar = ({
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {settings.map((setting, index) => (
+                <MenuItem
+                  key={index}
+                  onClick={setting.onClick || handleCloseUserMenu}
+                >
+                  <Typography textAlign="center">
+                    {typeof setting === 'string' ? setting : setting.label}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
