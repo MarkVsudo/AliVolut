@@ -15,20 +15,18 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import MyLogo from '../../../assets/alivolut-logo.svg';
 
-const pages = ['Offerings', 'Subscriptions', 'Blog'];
 const settings = [
   {
     label: 'Profile',
     onClick: () => {
       // Handle the click event for the "Profile" link
-      window.location.href = '/profile';
+      window.location.href = '/ProfilePage';
     }
   },
   'Account',
@@ -36,11 +34,7 @@ const settings = [
   'Logout'
 ];
 
-const ResponsiveAppBar = ({
-  onOfferingsClick,
-  onSubscriptionsClick,
-  onBlogClick
-}) => {
+const AppBarNotMainPage = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -60,21 +54,6 @@ const ResponsiveAppBar = ({
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-  };
-
-  const [activeButton, setActiveButton] = useState(null);
-
-  const handleButtonClick = (page) => {
-    setActiveButton(page);
-    handleCloseNavMenu();
-
-    if (page === 'Offerings') {
-      onOfferingsClick();
-    } else if (page === 'Subscriptions') {
-      onSubscriptionsClick();
-    } else if (page === 'Blog') {
-      onBlogClick();
-    }
   };
 
   const handleScroll = () => {
@@ -102,7 +81,7 @@ const ResponsiveAppBar = ({
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1 }}>
-            <a href="#" style={{ display: 'flex', alignItems: 'center' }}>
+            <a href="/" style={{ display: 'flex', alignItems: 'center' }}>
               <img
                 src={MyLogo}
                 alt="Logo"
@@ -146,11 +125,7 @@ const ResponsiveAppBar = ({
                 display: { xs: 'block', md: 'none' }
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              {/* Remove the pages.map() and MenuItem related code */}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -172,30 +147,6 @@ const ResponsiveAppBar = ({
           >
             LOGO
           </Typography>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexBasis: '100%',
-              textAlign: 'center'
-            }}
-          >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={() => handleButtonClick(page)}
-                className={
-                  activeButton === page ? 'activeButton navLinks' : 'navLinks'
-                }
-                sx={{
-                  my: 2
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
 
           <Box sx={{ flexGrow: 0, marginLeft: '7rem' }}>
             <Tooltip title="Open settings">
@@ -237,4 +188,4 @@ const ResponsiveAppBar = ({
   );
 };
 
-export default ResponsiveAppBar;
+export default AppBarNotMainPage;
