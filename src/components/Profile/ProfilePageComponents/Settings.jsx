@@ -8,8 +8,8 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
-  Divider,
   Modal,
+  Switch,
   Button,
   Select,
   MenuItem
@@ -20,6 +20,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LanguageIcon from '@mui/icons-material/Language';
 import LockIcon from '@mui/icons-material/Lock';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
@@ -62,7 +63,6 @@ const SettingsPage = () => {
           </ListItemIcon>
           <ListItemText primary="General Settings" />
         </ListItem>
-        <Divider />
         <ListItem button>
           <ListItemIcon>
             <PersonIcon />
@@ -81,7 +81,6 @@ const SettingsPage = () => {
           </ListItemIcon>
           <ListItemText primary="Language Preferences" />
         </ListItem>
-        <Divider />
         <ListItem button onClick={handleSecurityModalOpen}>
           <ListItemIcon>
             <LockIcon />
@@ -98,6 +97,13 @@ const SettingsPage = () => {
             <CreditCardIcon />
           </ListItemIcon>
           <ListItemText primary="Payment Methods" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <NotificationsIcon />
+          </ListItemIcon>
+          <ListItemText primary="Notification Settings" />
+          <Switch />
         </ListItem>
       </List>
       <Modal
