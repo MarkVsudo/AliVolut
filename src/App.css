@@ -640,7 +640,6 @@ body{
 
   .swiper-slide h2 {
     font-size: 2rem;
-    /* height: max-content; */
     margin-bottom: 2rem;
   }
 
@@ -687,7 +686,6 @@ body{
     flex-direction: row;
     gap: 2rem;
     text-align: left;
-    margin-bottom: 3rem;
 }
 
 [class^="col"]{
@@ -755,6 +753,15 @@ body{
     color: var(--white);
     line-height: 2;
 }
+
+.copyright {
+    padding: 0.8em 0;
+    background-color: #000000e4;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    margin: 0;
+  }
 
 
 /*===== Profile =====*/

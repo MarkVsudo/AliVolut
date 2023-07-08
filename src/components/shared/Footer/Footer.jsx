@@ -9,7 +9,7 @@ import bgLogo from '../../../assets/bgLogo.png';
 
 const Footer = () => {
   return (
-    <footer>
+    <><footer>
       <div className="textFooter">
         <div className="col1">
           <h6>Main</h6>
@@ -37,8 +37,8 @@ const Footer = () => {
       </div>
       <div className="socialFooter">
         <div className="footerLogos">
-          <a href='#' className='anchorAli'>
-          < img src={whiteLogo} className="aliLogoWhite" />
+          <a href="#" className="anchorAli">
+            <img src={whiteLogo} className="aliLogoWhite" />
           </a>
           <div className="socialLogosBlock">
             <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
@@ -58,11 +58,13 @@ const Footer = () => {
         </div>
         <div className="line" />
         <div className="bgFooter">
-            <img src={bgLogo} />
+          <img src={bgLogo} />
           <span>Bulgaria</span>
         </div>
       </div>
-    </footer>
+    </footer><div className="copyright">
+        Copyright © 2023 AliVolut - All rights reserved
+      </div></>
   );
 };
 
