@@ -12,13 +12,12 @@ import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import SettingsIcon from '@mui/icons-material/Settings';
 import StyleIcon from '@mui/icons-material/Style';
 import LogoutIcon from '@mui/icons-material/Logout';
-import EditIcon from '@mui/icons-material/Edit';
-import DoneAllIcon from '@mui/icons-material/DoneAll';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { IconButton } from '@mui/material';
 import AppBarNotMainPage from '../shared/HeaderNotMainPage/AppBarNotMainPage';
 import { viravaDefault } from '../../config/authConfig';
+import PersonalInformation from './ProfilePageComponents/PersonalInformation';
+import Accounts from './ProfilePageComponents/Accounts';
+import Cards from './ProfilePageComponents/Cards';
+import Settings from './ProfilePageComponents/Settings';
 
 const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('accounts');
@@ -76,121 +75,16 @@ const ProfilePage = () => {
     reader.readAsDataURL(e.target.files[0]);
   };
 
-  const [email, setEmail] = useState('veskovmark99@gmail.com');
-  const [password, setPassword] = useState('********');
-  const [phoneNumber, setPhoneNumber] = useState('1234567890');
-  const [country, setCountry] = useState('Bulgaria');
-  const [city, setCity] = useState('Pernik');
-  const [isEditing, setIsEditing] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [emailError, setEmailError] = useState(false);
-
-  const handleEditClick = () => {
-    setIsEditing(true);
-  };
-
-  const isEmailValid = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const isPasswordValid = () => {
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    return passwordRegex.test(password);
-  };
-
-  const handleSaveClick = () => {
-    if (isEmailValid() && isPasswordValid()) {
-      setIsEditing(false);
-      setEmailError(false);
-      setPasswordError(false);
-    } else {
-      setEmailError(!isEmailValid());
-      setPasswordError(!isPasswordValid());
-    }
-  };
-
-  const handlePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
   const renderMainSection = () => {
     switch (activeSection) {
       case 'accounts':
-        return <div>Accounts Section</div>;
+        return <Accounts />;
       case 'cards':
-        return <div>Cards Section</div>;
+        return <Cards />;
       case 'personal':
-        return (
-          <div className="formContainer">
-            <div className="inputContainer">
-              <TextField
-                label="Email"
-                value={email}
-                disabled={!isEditing}
-                onChange={(e) => setEmail(e.target.value)}
-                error={emailError}
-                helperText={emailError ? 'Invalid email address' : ''}
-              />
-            </div>
-            <div className="inputContainer">
-              <TextField
-                label="Password"
-                value={password}
-                type={showPassword ? 'text' : 'password'}
-                error={passwordError}
-                disabled={!isEditing}
-                onChange={(e) => setPassword(e.target.value)}
-                InputProps={{
-                  endAdornment: (
-                    <IconButton onClick={handlePasswordVisibility}>
-                      {showPassword ? (
-                        <VisibilityIcon />
-                      ) : (
-                        <VisibilityOffIcon />
-                      )}
-                    </IconButton>
-                  )
-                }}
-              />
-            </div>
-            {passwordError && (
-              <p className="passwordRequirements">
-                Password must be at least 8 characters long and contain an
-                uppercase letter and a number.
-              </p>
-            )}
-            <TextField
-              label="Phone Number"
-              value={phoneNumber}
-              disabled={!isEditing}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
-            <TextField
-              label="Country"
-              value={country}
-              disabled={!isEditing}
-              onChange={(e) => setCountry(e.target.value)}
-            />
-            <TextField
-              label="City"
-              value={city}
-              disabled={!isEditing}
-              onChange={(e) => setCity(e.target.value)}
-            />
-            <div className="iconMainDiv">
-              <IconButton onClick={handleEditClick} className="iconSubDiv">
-                <EditIcon />
-              </IconButton>
-              <IconButton onClick={handleSaveClick} className="iconDiv">
-                <DoneAllIcon />
-              </IconButton>
-            </div>
-          </div>
-        );
+        return <PersonalInformation />;
       case 'settings':
-        return <div>Settings Section</div>;
+        return <Settings />;
       default:
         return null;
     }
