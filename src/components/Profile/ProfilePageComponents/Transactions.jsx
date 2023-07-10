@@ -47,7 +47,7 @@ const Transactions = () => {
       return `$${amount.toFixed(2)}`;
     };
 
-    for (let i = 0; i < 15; i += 1) {
+    for (let i = 0; i < 10; i += 1) {
       const transactionId = `#${transactionIdCounter
         .toString()
         .padStart(8, '0')}`;
@@ -88,12 +88,13 @@ const Transactions = () => {
   useEffect(() => {
     const transactionsData = generateTransactions();
     setTransactions(transactionsData);
+    setSortedTransactions(transactionsData);
   }, []);
 
   const sortTransactionsByDate = () => {
-    const sorted = [...transactions].sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
+    const sorted = [...sortedTransactions].sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
       return sortAscending ? dateA - dateB : dateB - dateA;
     });
     setSortedTransactions(sorted);
