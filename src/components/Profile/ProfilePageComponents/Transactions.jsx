@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import '../../../App.css';
 import './Transactions.css';
-import { useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,16 +8,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import TableSortLabel from '@mui/material/TableSortLabel';
-import IconButton from '@mui/material/IconButton';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import SwapVertIcon from '@mui/icons-material/SwapVert';
 
 const Transactions = () => {
-  const [orderBy, setOrderBy] = useState('date');
-  const [order, setOrder] = useState('asc');
-
-  // Generate 7 dummy transactions
+  // Generate dummy transactions
   const generateTransactions = () => {
     const startDate = new Date();
     const transactions = [];
@@ -53,7 +46,7 @@ const Transactions = () => {
       return `$${amount.toFixed(2)}`;
     };
 
-    for (let i = 0; i < 7; i += 1) {
+    for (let i = 0; i < 14; i += 1) {
       const transactionId = `#${transactionIdCounter
         .toString()
         .padStart(8, '0')}`;
@@ -83,94 +76,30 @@ const Transactions = () => {
 
       transactions.push(transaction);
     }
+
     return transactions;
   };
 
-  // const transactions = generateTransactions();
-  const handleSortClick = (property) => {
-    if (orderBy === property) {
-      setOrder(order === 'asc' ? 'desc' : 'asc');
-    } else {
-      setOrderBy(property);
-      setOrder('asc');
-    }
-  };
-
-  const sortedTransactions = generateTransactions().sort((a, b) => {
-    const isAsc = order === 'asc' ? 1 : -1;
-    if (a[orderBy] < b[orderBy]) return -1 * isAsc;
-    if (a[orderBy] > b[orderBy]) return 1 * isAsc;
-    return 0;
-  });
-
-  const getSortIcon = (property) => {
-    if (orderBy === property) {
-      return order === 'asc' ? (
-        <ArrowUpwardIcon fontSize="small" />
-      ) : (
-        <ArrowDownwardIcon fontSize="small" />
-      );
-    }
-    return null;
-  };
+  const transactions = generateTransactions();
 
   return (
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>
-              <TableSortLabel
-                active={orderBy === 'date'}
-                direction={order}
-                onClick={() => handleSortClick('date')}
-                IconComponent={getSortIcon('date')}
-              >
-                Date
-              </TableSortLabel>
+            <TableCell sx={{ display: 'flex' }}>
+              Date <SwapVertIcon />
             </TableCell>
-            <TableCell>
-              <IconButton
-                size="small"
-                onClick={() => handleSortClick('transactionId')}
-              >
-                Transaction ID
-              </IconButton>
-            </TableCell>
-            <TableCell>
-              <IconButton
-                size="small"
-                onClick={() => handleSortClick('country')}
-              >
-                Country
-              </IconButton>
-            </TableCell>
-            <TableCell>
-              <IconButton
-                size="small"
-                onClick={() => handleSortClick('status')}
-              >
-                Status
-              </IconButton>
-            </TableCell>
-            <TableCell>
-              <IconButton size="small" onClick={() => handleSortClick('type')}>
-                Type
-              </IconButton>
-            </TableCell>
+            <TableCell>Transaction ID</TableCell>
+            <TableCell>Country</TableCell>
+            <TableCell>Status</TableCell>
+            <TableCell>Type</TableCell>
             <TableCell>Description</TableCell>
-            <TableCell>
-              <IconButton
-                size="small"
-                onClick={() => handleSortClick('amount')}
-              >
-                Amount
-              </IconButton>
-            </TableCell>
+            <TableCell>Amount</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {sortedTransactions.map((transaction) => (
+          {transactions.map((transaction) => (
             <TableRow key={transaction.transactionId} className="">
               <TableCell>{transaction.date}</TableCell>
               <TableCell>{transaction.transactionId}</TableCell>
