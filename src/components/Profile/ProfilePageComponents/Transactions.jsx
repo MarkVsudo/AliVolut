@@ -1,4 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import '../../../App.css';
+import { useState, useEffect } from 'react';
 import '../../../styles/Transactions.css';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,9 +9,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import SwapVertIcon from '@mui/icons-material/SwapVert';
 
 const Transactions = () => {
-  // Generate 7 dummy transactions
+  const [transactionsState, setTransactionsState] = useState([]);
+  const [sortedTransactions, setSortedTransactions] = useState([]);
+  const [sortAscending, setSortAscending] = useState(true);
+
+  // Generate dummy transactions
   const generateTransactions = () => {
     const startDate = new Date();
     const transactions = [];
@@ -35,7 +42,7 @@ const Transactions = () => {
     };
 
     const getRandomType = () => {
-      const types = ['Received', 'Sent'];
+      const types = ['Withdraw', 'Deposit', 'Transfer'];
       const randomIndex = Math.floor(Math.random() * types.length);
       return types[randomIndex];
     };
@@ -44,7 +51,7 @@ const Transactions = () => {
       return `$${amount.toFixed(2)}`;
     };
 
-    for (let i = 0; i < 7; i += 1) {
+    for (let i = 0; i < 10; i += 1) {
       const transactionId = `#${transactionIdCounter
         .toString()
         .padStart(8, '0')}`;
@@ -78,14 +85,34 @@ const Transactions = () => {
     return transactions;
   };
 
-  const transactions = generateTransactions();
+  const sortTransactionsByDate = () => {
+    const sorted = [...sortedTransactions].sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return sortAscending ? dateA - dateB : dateB - dateA;
+    });
+    setSortedTransactions(sorted);
+    setSortAscending(!sortAscending);
+  };
+
+  useEffect(() => {
+    const transactionsData = generateTransactions();
+    setTransactionsState(transactionsData);
+    setSortedTransactions(transactionsData);
+  }, []);
+
+  const displayedTransactions = sortedTransactions.length
+    ? sortedTransactions
+    : transactionsState;
 
   return (
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
+            <TableCell sx={{ display: 'flex' }}>
+              Date <SwapVertIcon onClick={sortTransactionsByDate} />
+            </TableCell>
             <TableCell>Transaction ID</TableCell>
             <TableCell>Country</TableCell>
             <TableCell>Status</TableCell>
@@ -95,8 +122,8 @@ const Transactions = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {transactions.map((transaction) => (
-            <TableRow key={transaction.transactionId} className="">
+          {displayedTransactions.map((transaction) => (
+            <TableRow key={transaction.transactionId}>
               <TableCell>{transaction.date}</TableCell>
               <TableCell>{transaction.transactionId}</TableCell>
               <TableCell>{transaction.country}</TableCell>

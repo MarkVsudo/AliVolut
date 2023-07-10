@@ -2,24 +2,36 @@
 /* Transactions profile page */
 
 .pending {
-    color: orange;
+    background-color: rgb(249, 210, 138);
+    color: orange !important;
+    font-weight: 700 !important;
   }
   
   .completed {
     background-color: rgb(146, 227, 162);
     color: green !important;
+    font-weight: 700 !important; 
   }
   
   .canceled {
-    color: red;
+    background-color: rgb(248, 133, 133);
+    color: red !important;
+    font-weight: 700 !important;
   }
   
-  .received {
-    font-weight: bold;
+  .withdraw {
+    font-weight: 700 !important;
+    color: rgb(92, 189, 249) !important;
   }
   
-  .sent {
-    color: red;
+  .deposit {
+    font-weight: 700 !important;
+    color: rgb(143, 245, 137) !important;
+  }
+
+  .transfer {
+    font-weight: 700 !important;
+    color: rgb(255, 220, 63) !important;
   }
   
 /* End of Transactions */
