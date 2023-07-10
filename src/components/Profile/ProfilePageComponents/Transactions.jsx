@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import '../../../App.css';
 import './Transactions.css';
+import { useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -82,13 +83,30 @@ const Transactions = () => {
 
   const transactions = generateTransactions();
 
+  const [sortedTransactions, setSortedTransactions] = useState([]);
+  const [sortAscending, setSortAscending] = useState(true);
+
+  const sortTransactionsByDate = () => {
+    const sorted = [...transactions].sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return sortAscending ? dateA - dateB : dateB - dateA;
+    });
+    setSortedTransactions(sorted);
+    setSortAscending(!sortAscending);
+  };
+
+  const displayedTransactions = sortedTransactions.length
+    ? sortedTransactions
+    : transactions;
+
   return (
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
             <TableCell sx={{ display: 'flex' }}>
-              Date <SwapVertIcon />
+              Date <SwapVertIcon onClick={sortTransactionsByDate} />
             </TableCell>
             <TableCell>Transaction ID</TableCell>
             <TableCell>Country</TableCell>
@@ -99,8 +117,8 @@ const Transactions = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {transactions.map((transaction) => (
-            <TableRow key={transaction.transactionId} className="">
+          {displayedTransactions.map((transaction) => (
+            <TableRow key={transaction.transactionId}>
               <TableCell>{transaction.date}</TableCell>
               <TableCell>{transaction.transactionId}</TableCell>
               <TableCell>{transaction.country}</TableCell>
