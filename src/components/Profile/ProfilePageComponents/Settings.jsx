@@ -46,12 +46,6 @@ const SettingsPage = () => {
     setDocumentType(event.target.value);
   };
 
-  //   const handleSubmitChanges = () => {
-  //     setIsSecurityModalOpen(false);
-  //     setIsDocumentUploaded(false);
-  //     setDocumentType('');
-  //   };
-
   return (
     <Container maxWidth="sm">
       <Typography variant="h4" align="center" gutterBottom>
@@ -170,14 +164,6 @@ const SettingsPage = () => {
                   onChange={handleDocumentUpload}
                 />
               </Button>
-              {/* <Button
-                variant="contained"
-                color="primary"
-                onClick={handleSubmitChanges}
-                disabled={!isDocumentUploaded}
-              >
-                Submit Changes
-              </Button> */}
             </>
           ) : (
             <>

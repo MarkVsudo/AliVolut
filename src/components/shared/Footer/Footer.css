@@ -16,23 +16,23 @@
     margin-bottom: 1rem;
 }
 
-[class^="col"]{
+.col{
     display: flex;
     flex-direction: column;
 }
 
-[class^="col"] h6{
+.col h6{
     color: var(--white);
     font-size: 1.125rem;
 }
 
-[class^="col"] a{
+.col a{
     font-size: 1rem;
     color: #6E6E6E;
     transition: all 200ms ease-in-out;
 }
 
-[class^="col"] a:hover{
+.col a:hover{
     color: #cccaca;
 }
 
