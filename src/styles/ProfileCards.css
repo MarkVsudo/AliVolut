@@ -1,0 +1,56 @@
+
+.cards-block {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+  }
+  
+  .card {
+    width: 80%; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    perspective: 1000px; /* Perspective for 3D effect */
+    margin: 2rem;
+  }
+  
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front,
+  .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  
+  .card-front {
+    /* Styling for front face of the card */
+  }
+
+  .card-front img{
+    width: 95%;
+  }
+
+  .card-back img{
+    width: 95%;
+  }
+  
+  .card-back {
+    transform: rotateY(180deg); /* Initially hidden, flipped 180 degrees */
+    /* Styling for back face of the card */
+  }
+  
+  .hidden-card {
+    display: none; /* Initially hidden */
+  }
+  
