@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import '../../../App.css';
+import './Footer.css';
 import whiteLogo from '../../../assets/Alivolut-white.png';
 import fbLogo from '../../../assets/fbLogo.png';
 import twLogo from '../../../assets/twLogo.png';
@@ -12,25 +13,25 @@ const Footer = () => {
     <>
       <footer>
         <div className="textFooter">
-          <div className="col1">
+          <div className="col">
             <h6>Main</h6>
             <a>Transactions</a>
             <a>Exchange</a>
             <a>Subscriptions</a>
             <a>Cards</a>
           </div>
-          <div className="col2">
+          <div className="col">
             <h6>Subscription Plans</h6>
             <a>Standard</a>
             <a>Premium</a>
             <a>Elite</a>
           </div>
-          <div className="col3">
+          <div className="col">
             <h6>Organization</h6>
             <a>About Us</a>
             <a>Contacts</a>
           </div>
-          <div className="col4">
+          <div className="col">
             <h6>Policies</h6>
             <a>Terms & Conditions</a>
             <a>Rights</a>

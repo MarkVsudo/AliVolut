@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 import { useState, useEffect } from 'react';
 import '../../App.css';
+import './ProfilePage.css';
 import Avatar from '@mui/material/Avatar';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
@@ -12,6 +13,7 @@ import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import SettingsIcon from '@mui/icons-material/Settings';
 import StyleIcon from '@mui/icons-material/Style';
 import LogoutIcon from '@mui/icons-material/Logout';
+import MultipleStopIcon from '@mui/icons-material/MultipleStop';
 import AppBarNotMainPage from '../shared/HeaderNotMainPage/AppBarNotMainPage';
 import { viravaDefault } from '../../config/authConfig';
 import PersonalInformation from './ProfilePageComponents/PersonalInformation';
@@ -19,7 +21,6 @@ import Accounts from './ProfilePageComponents/Accounts';
 import Cards from './ProfilePageComponents/Cards';
 import Settings from './ProfilePageComponents/Settings';
 import Transactions from './ProfilePageComponents/Transactions';
-import MultipleStopIcon from '@mui/icons-material/MultipleStop';
 
 const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('accounts');
@@ -84,7 +85,7 @@ const ProfilePage = () => {
       case 'cards':
         return <Cards />;
       case 'transactions':
-        return <Transactions />
+        return <Transactions />;
       case 'personal':
         return <PersonalInformation />;
       case 'settings':
@@ -126,7 +127,9 @@ const ProfilePage = () => {
             </div>
             <div className="listSettingBlock">
               <MultipleStopIcon className="profileIcons" />
-              <button onClick={() => handleSectionClick('transactions')}>Transactions</button>
+              <button onClick={() => handleSectionClick('transactions')}>
+                Transactions
+              </button>
             </div>
             <div className="listSettingBlock">
               <PersonSearchIcon className="profileIcons" />

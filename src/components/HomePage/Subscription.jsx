@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import '../../App.css';
+import './Subscription.css';
 import DoneIcon from '@mui/icons-material/Done';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 

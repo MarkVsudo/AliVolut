@@ -1,0 +1,111 @@
+/* Pricing cards*/
+
+.subscriptionSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: max-content;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+}
+
+.subscriptionSection h2{
+    margin-bottom: 5rem;
+    font-size: 3.5rem;
+}
+
+.subscriptionCards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-inline: 5rem;
+    gap: 3rem;
+    text-align: left;
+    width: 100%;
+    color: var(--white);
+}
+
+[class^="sb-card-"]{
+    padding: 3rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+.typePlan,
+.pricePlan{
+    text-align: center;
+}
+
+.typePlan{
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.pricePlan{
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+
+[class^="sb-card-"]:nth-child(odd){
+    background-color: #3D60DD;
+}
+
+.sb-card-2{
+    background-color: var(--cyan);
+    transform: translateY(-3.5%);
+    height: 107%;
+}
+
+.sb-card-2 .typePlan{
+    margin-top: 6%;
+} 
+
+[class^="sb-card-"] li{
+    font-size: 1rem;
+    line-height: 2.75rem;
+    align-self: flex-start;
+}
+
+.sb-tick{
+    font-size: 1.1rem !important;
+    color: var(--white);
+    margin-right: .25rem;
+}
+
+.btnSubscription{
+    width: 12rem;
+    margin-block: 1rem;
+    background-color: #3D60DD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3rem;
+    padding: 1rem .75rem 1rem .75rem;
+    border-radius: 2rem;
+    transition: all 250ms ease-in-out;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btnSubscription:hover{
+    color: #3D60DD;
+    background-color: var(--light-blue);
+}
+
+[class^="sb-card-"]:nth-child(odd) .btnSubscription:hover{
+    color: var(--cyan);
+    background-color: var(--light-blue);
+}
+
+
+[class^="sb-card-"]:nth-child(odd) .btnSubscription{
+    background-color: var(--cyan);
+}

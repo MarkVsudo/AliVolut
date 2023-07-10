@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import '../../../App.css';
+import './PersonalInformation.css';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import EditIcon from '@mui/icons-material/Edit';

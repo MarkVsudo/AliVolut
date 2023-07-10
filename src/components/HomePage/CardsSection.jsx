@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import '../../App.css';
+import './CardsSection.css';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import earth from '../../assets/earth.png';
 import vault from '../../assets/vault.png';
@@ -10,7 +11,7 @@ import stock2 from '../../assets/stock2.png';
 
 const CardsSection = () => {
   return (
-    <div className="cardsSection" id="cards">
+    <div className="cardsSection">
       <div className="cardsTitles">
         <h5>Your daily needs</h5>
         <h2>

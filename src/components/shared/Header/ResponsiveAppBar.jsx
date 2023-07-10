@@ -3,7 +3,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
 import '../../../App.css';
-
+import './Header.css';
 import { useState, useEffect } from 'react';
 
 import AppBar from '@mui/material/AppBar';

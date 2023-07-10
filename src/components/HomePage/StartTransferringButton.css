@@ -1,0 +1,21 @@
+.mainBtn{
+    color: var(--white) !important;
+    border: 2px solid var(--cyan) !important;
+    background-color: var(--cyan) !important;
+    font-size: 1.25rem !important;
+    text-transform: none !important;
+    border-radius: 2rem !important;
+    padding-block: 0.6rem !important;
+    font-weight: 400 !important;
+    position: absolute !important;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+}
+
+.mainBtn:hover{
+    color: var(--cyan) !important;
+    border: 2px solid var(--cyan) !important;
+    background-color: transparent !important;
+    transition: all 500ms ease-in-out;
+}

@@ -1,6 +1,7 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/alt-text */
 import '../../App.css';
+import './MainPage.css';
 import { useRef } from 'react';
 import chair from '../../assets/chair.svg';
 import hand from '../../assets/hand.svg';
@@ -20,7 +21,6 @@ import ScrollDiscover from './ScrollDiscover';
 import ResponsiveAppBar from '../shared/Header/ResponsiveAppBar';
 
 const MainPage = () => {
-
   const cardsSectionRef = useRef(null);
   const subscriptionSectionRef = useRef(null);
   const blogSectionRef = useRef(null);
@@ -48,8 +48,8 @@ const MainPage = () => {
         onOfferingsClick={handleRedirectToCards}
         onSubscriptionsClick={handleRedirectToSubscription}
         onBlogClick={handleRedirectToBlog}
-      />     
-       <div className="heroSection">
+      />
+      <div className="heroSection">
         <h1 className="mainText">
           Best App For Managing <br></br>Your Funds!
         </h1>
@@ -101,7 +101,7 @@ const MainPage = () => {
         <Subscription />
       </section>
       <section ref={blogSectionRef}>
-        <Blog />  
+        <Blog />
       </section>
     </>
   );

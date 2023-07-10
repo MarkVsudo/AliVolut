@@ -2,25 +2,24 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable import/no-unresolved */
 import '../../App.css';
+import './Blog.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards } from 'swiper/modules';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import crypto1 from '../../assets/crypto1.png';
-import crypto2 from '../../assets/crypto2.jpg';
-import crypto3 from '../../assets/crypto3.jpg';
-import stocks1 from '../../assets/stocks1.jpg';
-import stocks2 from '../../assets/stocks2.jpg';
-import stocks3 from '../../assets/stocks3.jpg';
-import realEst1 from '../../assets/realEst1.jpg';
-import realEst2 from '../../assets/realEst2.jpg';
-import realEst3 from '../../assets/realEst3.jpg';
+import crypto1 from '../../assets/crypto-blog-img1.png';
+import crypto2 from '../../assets/crypto-blog-img2.jpg';
+import crypto3 from '../../assets/crypto-blog-img3.jpg';
+import stocks1 from '../../assets/stocks-blog-img1.jpg';
+import stocks2 from '../../assets/stocks-blog-img2.jpg';
+import stocks3 from '../../assets/stocks-blog-img3.jpg';
+import realEst1 from '../../assets/realEst-blog-img1.jpg';
+import realEst2 from '../../assets/realEst-blog-img2.jpg';
+import realEst3 from '../../assets/realEst-blog-img3.jpg';
 // Import Swiper React components
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-cards';
-
-// import required modules
 
 const Blog = () => {
   return (
@@ -47,7 +46,7 @@ const Blog = () => {
               </p>
               <h5>
                 Read more
-                <ArrowForwardIosIcon className="arrowBlog" />{' '}
+                <ArrowForwardIosIcon className="arrow-blog" />{' '}
               </h5>
             </SwiperSlide>
             <SwiperSlide>

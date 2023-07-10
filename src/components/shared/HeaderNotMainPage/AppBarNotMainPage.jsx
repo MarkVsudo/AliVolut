@@ -3,9 +3,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
 import '../../../App.css';
+import '../Header/Header.css';
 
 import { useState, useEffect } from 'react';
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -40,7 +40,7 @@ const settings = [
         console.error(error);
       }
     }
-  },
+  }
 ];
 
 const AppBarNotMainPage = () => {

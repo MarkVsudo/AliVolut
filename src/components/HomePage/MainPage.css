@@ -1,0 +1,72 @@
+.heroSection{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: grid;
+    gap: 2rem;
+    height: 100vh;
+    position: relative;
+}
+
+.mainText{
+    font-size: 4.25rem;
+    z-index: 1;
+    margin-top: 8rem;
+}
+
+.secondaryText{
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+[class^="mainIcon-"] {
+    width: 1.75rem;
+    height: 1.75rem;
+    position: absolute;
+}
+
+.mainIcon-1{
+    top: 10rem;
+    left: 4rem;
+
+}
+.mainIcon-2{
+    top: 28rem;
+    left: 10rem;
+}
+.mainIcon-3{
+    top: 45rem;
+    left: 15rem;
+}
+.mainIcon-4{
+    top: 20rem;
+    left: 25rem;
+}
+.mainIcon-5{
+    top: 20rem;
+    right: 10rem;
+}
+.mainIcon-6{
+    top: 5rem;
+    right: 15rem;
+}
+.mainIcon-7{
+    top: 35rem;
+    right: 15rem;
+}
+.mainIcon-8{
+    top: 45rem;
+    right: 25rem;
+}
+.mainIcon-9{
+    top: 20rem;
+    right: 30rem;
+}
+.mainIcon-10{
+    top: 2rem;
+    right: 37rem;
+}
+.mainIcon-11{
+    top: 3rem;
+    left: 25rem;
+}
