@@ -27,7 +27,12 @@ const Transactions = () => {
       { name: 'Canada', flag: '🇨🇦' },
       { name: 'Germany', flag: '🇩🇪' },
       { name: 'France', flag: '🇫🇷' },
-      { name: 'United Kingdom', flag: '🇬🇧' }
+      { name: 'United Kingdom', flag: '🇬🇧' },
+      { name: 'Greece', flag: '🇬🇷' },
+      { name: 'Bulgaria', flag: '🇧🇬' },
+      { name: 'Norway', flag: '🇳🇴' },
+      { name: 'Finland', flag: '🇫🇮' },
+      { name: 'Peru', flag: '🇵🇪' }
     ];
 
     const getRandomCountry = () => {
@@ -51,7 +56,7 @@ const Transactions = () => {
       return `$${amount.toFixed(2)}`;
     };
 
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < 15; i += 1) {
       const transactionId = `#${transactionIdCounter
         .toString()
         .padStart(8, '0')}`;
@@ -106,12 +111,16 @@ const Transactions = () => {
     : transactionsState;
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className="table-container">
       <Table>
-        <TableHead>
+        <TableHead className="table-head">
           <TableRow>
             <TableCell sx={{ display: 'flex' }}>
-              Date <SwapVertIcon onClick={sortTransactionsByDate} />
+              Date{' '}
+              <SwapVertIcon
+                onClick={sortTransactionsByDate}
+                sx={{ cursor: 'pointer', marginLeft: '.5rem' }}
+              />
             </TableCell>
             <TableCell>Transaction ID</TableCell>
             <TableCell>Country</TableCell>

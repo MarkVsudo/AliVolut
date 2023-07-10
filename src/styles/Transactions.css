@@ -1,37 +1,45 @@
-
 /* Transactions profile page */
 
-.pending {
-    background-color: rgb(249, 210, 138);
-    color: orange !important;
-    font-weight: 700 !important;
-  }
-  
-  .completed {
-    background-color: rgb(146, 227, 162);
-    color: green !important;
-    font-weight: 700 !important; 
-  }
-  
-  .canceled {
-    background-color: rgb(248, 133, 133);
-    color: red !important;
-    font-weight: 700 !important;
-  }
-  
-  .withdraw {
-    font-weight: 700 !important;
-    color: rgb(92, 189, 249) !important;
-  }
-  
-  .deposit {
-    font-weight: 700 !important;
-    color: rgb(143, 245, 137) !important;
-  }
+.table-container{
+  overflow-y: scroll;
+  max-height: 75vh;
+}
 
-  .transfer {
-    font-weight: 700 !important;
-    color: rgb(255, 220, 63) !important;
-  }
-  
+.table-head {
+  background-color: rgb(238, 238, 238);
+}
+
+.pending {
+  background-color: rgb(249, 210, 138);
+  color: orange !important;
+  font-weight: 700 !important;
+}
+
+.completed {
+  background-color: rgb(146, 227, 162);
+  color: green !important;
+  font-weight: 700 !important;
+}
+
+.canceled {
+  background-color: rgb(248, 133, 133);
+  color: red !important;
+  font-weight: 700 !important;
+}
+
+.withdraw {
+  font-weight: 700 !important;
+  color: rgb(92, 189, 249) !important;
+}
+
+.deposit {
+  font-weight: 700 !important;
+  color: rgb(143, 245, 137) !important;
+}
+
+.transfer {
+  font-weight: 700 !important;
+  color: rgb(255, 220, 63) !important;
+}
+
 /* End of Transactions */
