@@ -1,13 +1,24 @@
-// import logo from './logo.svg';
+/* eslint-disable react/self-closing-comp */
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import MainPage from './components/HomePage/MainPage';
+import ScrollUp from './components/shared/ScrollUp/ScrollUp';
+import Footer from './components/shared/Footer/Footer';
+import ProfilePage from './components/Profile/ProfilePage';
 import './App.css';
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-      <h1>Hello</h1>
-      </header>
-    </div>
+    <Router>
+      <>
+        <ScrollUp />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Routes>
+        <Footer></Footer>
+      </>
+    </Router>
   );
 };
 
