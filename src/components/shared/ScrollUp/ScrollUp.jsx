@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import '../../../App.css';
-import './ScrollUp.css';
+import '../../../styles/ScrollUp.css';
 
 const ScrollUp = () => {
   const [visible, setVisible] = useState(false);

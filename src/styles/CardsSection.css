@@ -1,0 +1,170 @@
+/* Cards Section */
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: max-content;
+  width: 100%;
+}
+
+.cards-titles {
+  display: grid;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.cards-titles h5 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+
+.cards-titles h2 {
+  font-size: 3.5rem;
+}
+
+.cards-titles h4 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.cards-grid {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 3rem;
+  width: 100%;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.card-1 {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  grid-template-columns: repeat(2, 1fr);
+  width: 55vw;
+  background-color: var(--cyan);
+  border-radius: 2rem;
+  color: var(--white);
+  text-align: left;
+  overflow: hidden;
+  margin-inline: auto;
+  margin-top: 3rem;
+  box-shadow: var(--shadow);
+}
+
+.card-1 div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 2.5rem;
+}
+
+.card-1 h2 {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 45px;
+  margin-bottom: 2rem;
+}
+
+.card-1 h4 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  margin-bottom: 7rem;
+}
+
+.card-1 a {
+  font-size: 24px;
+  display: inline-flex;
+}
+
+.right-arrow {
+  font-size: 2rem !important;
+}
+
+.earth {
+  position: relative;
+  left: 10%;
+  transform: translateY(25%);
+  overflow: hidden;
+  width: 100%;
+}
+
+.card2n3 {
+  display: flex;
+  flex-direction: row;
+  margin-inline: auto;
+  gap: 3rem;
+  width: 55vw;
+}
+
+.card-2 {
+  display: flex;
+  flex-direction: column;
+  width: 27.5vw;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 2rem;
+  padding: 3rem;
+}
+
+.card-2 h2 {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 45px;
+  margin-bottom: 2rem;
+  text-align: left;
+  margin-bottom: 5rem;
+}
+
+.card-2 img {
+  width: 35%;
+  margin-bottom: 3rem;
+}
+
+.card-2 a {
+  font-size: 24px;
+  display: inline-flex;
+}
+
+.card-3 {
+  display: flex;
+  flex-direction: column;
+  width: 27.5vw;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 2rem;
+  padding: 3rem 0 3rem 3rem;
+}
+
+.card-3 h2 {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 45px;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.card-3 div {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.card-3 a {
+  font-size: 24px;
+  display: inline-flex;
+}

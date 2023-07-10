@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import '../../../App.css';
-import './Footer.css';
+import '../../../styles/Footer.css';
 import whiteLogo from '../../../assets/Alivolut-white.png';
 import fbLogo from '../../../assets/fbLogo.png';
 import twLogo from '../../../assets/twLogo.png';
@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className="textFooter">
+        <div className="text-footer">
           <div className="col">
             <h6>Main</h6>
             <a>Transactions</a>
@@ -37,37 +37,37 @@ const Footer = () => {
             <a>Rights</a>
           </div>
         </div>
-        <div className="socialFooter">
-          <div className="footerLogos">
-            <a href="#" className="anchorAli">
-              <img src={whiteLogo} className="aliLogoWhite" />
+        <div className="social-footer">
+          <div className="footer-logos">
+            <a href="#" className="anchor-ali">
+              <img src={whiteLogo} className="ali-logo-white" />
             </a>
-            <div className="socialLogosBlock">
+            <div className="social-logos-block">
               <a
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={fbLogo} className="socialLogos" />
+                <img src={fbLogo} className="social-logos" />
               </a>
               <a
                 href="https://www.twitter.com"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={twLogo} className="socialLogos" />
+                <img src={twLogo} className="social-logos" />
               </a>
               <a
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={instaLogo} className="socialLogos" />
+                <img src={instaLogo} className="social-logos" />
               </a>
             </div>
           </div>
           <div className="line" />
-          <div className="bgFooter">
+          <div className="bg-footer">
             <img src={bgLogo} />
             <span>Bulgaria</span>
           </div>

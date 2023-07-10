@@ -1,0 +1,42 @@
+/* Personal Information */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.form-container input {
+  width: 30rem;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.password-requirements {
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.icon-sub-div {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.icon-main-div {
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  align-self: center;
+  gap: 2rem;
+}
+
+/* End of Personal Information */

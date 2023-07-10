@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
 import '../../../App.css';
-import './PersonalInformation.css';
+import '../../../styles/PersonalInformation.css';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import EditIcon from '@mui/icons-material/Edit';
@@ -50,8 +50,8 @@ const PersonalInformation = () => {
   };
 
   return (
-    <div className="formContainer">
-      <div className="inputContainer">
+    <div className="form-container">
+      <div className="input-container">
         <TextField
           label="Email"
           value={email}
@@ -61,7 +61,7 @@ const PersonalInformation = () => {
           helperText={emailError ? 'Invalid email address' : ''}
         />
       </div>
-      <div className="inputContainer">
+      <div className="input-container">
         <TextField
           label="Password"
           value={password}
@@ -79,7 +79,7 @@ const PersonalInformation = () => {
         />
       </div>
       {passwordError && (
-        <p className="passwordRequirements">
+        <p className="password-requirements">
           Password must be at least 8 characters long and contain an uppercase
           letter and a number.
         </p>
@@ -102,11 +102,11 @@ const PersonalInformation = () => {
         disabled={!isEditing}
         onChange={(e) => setCity(e.target.value)}
       />
-      <div className="iconMainDiv">
-        <IconButton onClick={handleEditClick} className="iconSubDiv">
+      <div className="icon-main-div">
+        <IconButton onClick={handleEditClick} className="icon-sub-div">
           <EditIcon />
         </IconButton>
-        <IconButton onClick={handleSaveClick} className="iconDiv">
+        <IconButton onClick={handleSaveClick} className="icon-div">
           <DoneAllIcon />
         </IconButton>
       </div>

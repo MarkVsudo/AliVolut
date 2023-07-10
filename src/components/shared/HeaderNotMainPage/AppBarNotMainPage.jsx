@@ -3,7 +3,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
 import '../../../App.css';
-import '../Header/Header.css';
+import '../../../styles/Header.css';
 
 import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -99,9 +99,9 @@ const AppBarNotMainPage = () => {
                   width: '8rem',
                   height: '4rem'
                 }}
-                className="aliLogo"
+                className="ali-logo"
               />
-              <CurrencyBitcoinIcon className="btcLogo" />
+              <CurrencyBitcoinIcon className="btc-logo" />
             </a>
           </Box>
 

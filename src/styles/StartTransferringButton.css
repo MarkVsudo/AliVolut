@@ -1,4 +1,4 @@
-.mainBtn{
+.main-btn{
     color: var(--white) !important;
     border: 2px solid var(--cyan) !important;
     background-color: var(--cyan) !important;
@@ -13,7 +13,7 @@
     transform: translate(-50%, -50%);
 }
 
-.mainBtn:hover{
+.main-btn:hover{
     color: var(--cyan) !important;
     border: 2px solid var(--cyan) !important;
     background-color: transparent !important;

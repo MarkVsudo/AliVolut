@@ -1,9 +1,7 @@
-import '../../../App.css'
+import '../../../App.css';
 
 const Accounts = () => {
-  return (
-    <div>Accounts</div>
-  )
-}
+  return <div>Accounts</div>;
+};
 
-export default Accounts
+export default Accounts;

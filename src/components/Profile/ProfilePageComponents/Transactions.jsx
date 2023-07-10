@@ -1,5 +1,5 @@
 import '../../../App.css';
-import './Transactions.css';
+import '../../../styles/Transactions.css';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,7 +7,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
 
 const Transactions = () => {
   // Generate 7 dummy transactions
@@ -97,12 +96,16 @@ const Transactions = () => {
         </TableHead>
         <TableBody>
           {transactions.map((transaction) => (
-            <TableRow key={transaction.transactionId} className=''>
+            <TableRow key={transaction.transactionId} className="">
               <TableCell>{transaction.date}</TableCell>
               <TableCell>{transaction.transactionId}</TableCell>
               <TableCell>{transaction.country}</TableCell>
-              <TableCell className={transaction.statusClass}>{transaction.status}</TableCell>
-              <TableCell className={transaction.typeClass}>{transaction.type}</TableCell>
+              <TableCell className={transaction.statusClass}>
+                {transaction.status}
+              </TableCell>
+              <TableCell className={transaction.typeClass}>
+                {transaction.type}
+              </TableCell>
               <TableCell>{transaction.description}</TableCell>
               <TableCell>{transaction.amount}</TableCell>
             </TableRow>
