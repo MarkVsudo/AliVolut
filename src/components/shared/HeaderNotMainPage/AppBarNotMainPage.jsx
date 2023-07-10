@@ -30,8 +30,7 @@ const settings = [
       window.location.href = '/profile';
     }
   },
-  'Account',
-  'Dashboard',
+  'Transactions',
   {
     label: 'Logout',
     onClick: async () => {

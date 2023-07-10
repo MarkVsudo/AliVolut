@@ -10,6 +10,7 @@ import {
   ListItemIcon,
   Modal,
   Switch,
+  Divider,
   Button,
   Select,
   MenuItem
@@ -45,11 +46,11 @@ const SettingsPage = () => {
     setDocumentType(event.target.value);
   };
 
-//   const handleSubmitChanges = () => {
-//     setIsSecurityModalOpen(false);
-//     setIsDocumentUploaded(false);
-//     setDocumentType('');
-//   };
+  //   const handleSubmitChanges = () => {
+  //     setIsSecurityModalOpen(false);
+  //     setIsDocumentUploaded(false);
+  //     setDocumentType('');
+  //   };
 
   return (
     <Container maxWidth="sm">
@@ -57,30 +58,35 @@ const SettingsPage = () => {
         Settings
       </Typography>
       <List>
+        <Divider />
         <ListItem button>
           <ListItemIcon>
             <SettingsIcon />
           </ListItemIcon>
           <ListItemText primary="General Settings" />
         </ListItem>
+        <Divider />
         <ListItem button>
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
           <ListItemText primary="Profile" />
         </ListItem>
+        <Divider />
         <ListItem button>
           <ListItemIcon>
             <EmailIcon />
           </ListItemIcon>
           <ListItemText primary="Contact Information" />
         </ListItem>
+        <Divider />
         <ListItem button>
           <ListItemIcon>
             <LanguageIcon />
           </ListItemIcon>
           <ListItemText primary="Language Preferences" />
         </ListItem>
+        <Divider />
         <ListItem button onClick={handleSecurityModalOpen}>
           <ListItemIcon>
             <LockIcon />
@@ -92,12 +98,14 @@ const SettingsPage = () => {
             </ListItemIcon>
           )}
         </ListItem>
+        <Divider />
         <ListItem button>
           <ListItemIcon>
             <CreditCardIcon />
           </ListItemIcon>
           <ListItemText primary="Payment Methods" />
         </ListItem>
+        <Divider />
         <ListItem button>
           <ListItemIcon>
             <NotificationsIcon />
@@ -105,6 +113,7 @@ const SettingsPage = () => {
           <ListItemText primary="Notification Settings" />
           <Switch />
         </ListItem>
+        <Divider />
       </List>
       <Modal
         open={isSecurityModalOpen}

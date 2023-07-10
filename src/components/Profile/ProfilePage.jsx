@@ -18,6 +18,8 @@ import PersonalInformation from './ProfilePageComponents/PersonalInformation';
 import Accounts from './ProfilePageComponents/Accounts';
 import Cards from './ProfilePageComponents/Cards';
 import Settings from './ProfilePageComponents/Settings';
+import Transactions from './ProfilePageComponents/Transactions';
+import MultipleStopIcon from '@mui/icons-material/MultipleStop';
 
 const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('accounts');
@@ -81,6 +83,8 @@ const ProfilePage = () => {
         return <Accounts />;
       case 'cards':
         return <Cards />;
+      case 'transactions':
+        return <Transactions />
       case 'personal':
         return <PersonalInformation />;
       case 'settings':
@@ -119,6 +123,10 @@ const ProfilePage = () => {
             <div className="listSettingBlock">
               <StyleIcon className="profileIcons" />
               <button onClick={() => handleSectionClick('cards')}>Cards</button>
+            </div>
+            <div className="listSettingBlock">
+              <MultipleStopIcon className="profileIcons" />
+              <button onClick={() => handleSectionClick('transactions')}>Transactions</button>
             </div>
             <div className="listSettingBlock">
               <PersonSearchIcon className="profileIcons" />
