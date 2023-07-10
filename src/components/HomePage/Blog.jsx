@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable import/no-unresolved */
 import '../../App.css';
-import './Blog.css';
+import '../../styles/Blog.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards } from 'swiper/modules';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -23,10 +23,10 @@ import 'swiper/css/effect-cards';
 
 const Blog = () => {
   return (
-    <div className="blogSection">
+    <div className="blog-section">
       <h2>Latest News</h2>
-      <div className="swiperContainer">
-        <div className="subContainer-1">
+      <div className="swiper-container">
+        <div className="sub-container-1">
           <h5>Crypto</h5>
           <Swiper
             effect="cards"
@@ -35,7 +35,7 @@ const Blog = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <img src={crypto1} className="blogImg" />
+              <img src={crypto1} className="blog-img" />
               <h2>Crypto Chronicles: Insights and Analysis</h2>
               <p>
                 Uncover the stories behind successful crypto projects, learn
@@ -50,7 +50,7 @@ const Blog = () => {
               </h5>
             </SwiperSlide>
             <SwiperSlide>
-              <img src={crypto2} className="blogImg" />
+              <img src={crypto2} className="blog-img" />
               <h2>Blockchain Buzz: Exploring the Crypto World</h2>
               <p>
                 Whether you're a crypto enthusiast or a novice investor, Digital
@@ -65,7 +65,7 @@ const Blog = () => {
               </h5>
             </SwiperSlide>
             <SwiperSlide>
-              <img src={crypto3} className="blogImg" />
+              <img src={crypto3} className="blog-img" />
               <h2>Digital Currency Digest: Trends and Tips</h2>
               <p>
                 Immerse yourself in the exciting realm of blockchain technology
@@ -81,7 +81,7 @@ const Blog = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="subContainer-2">
+        <div className="sub-container-2">
           <h5>Stocks</h5>
           <Swiper
             effect="cards"
@@ -90,7 +90,7 @@ const Blog = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <img src={stocks1} className="blogImg" />
+              <img src={stocks1} className="blog-img" />
               <h2>Stock Market Insights: Trends and Analysis</h2>
               <p>
                 From identifying potential investment opportunities to
@@ -106,7 +106,7 @@ const Blog = () => {
               </h5>
             </SwiperSlide>
             <SwiperSlide>
-              <img src={stocks2} className="blogImg" />
+              <img src={stocks2} className="blog-img" />
               <h2>Investor's Corner: Unveiling Stock Secrets</h2>
               <p>
                 Investor's Corner aims to demystify the complexities of stock
@@ -121,7 +121,7 @@ const Blog = () => {
               </h5>
             </SwiperSlide>
             <SwiperSlide>
-              <img src={stocks3} className="blogImg" />
+              <img src={stocks3} className="blog-img" />
               <h2>Trading Talk: Navigating the Stock Market</h2>
               <p>
                 Whether you're a seasoned trader or a beginner, Trading Talk
@@ -146,7 +146,7 @@ const Blog = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <img src={realEst1} className="blogImg" />
+              <img src={realEst1} className="blog-img" />
               <h2>Property Prospects: Real Estate Insights and Trends</h2>
               <p>
                 Explore the dynamic world of cryptocurrencies with Crypto
@@ -161,7 +161,7 @@ const Blog = () => {
               </h5>
             </SwiperSlide>
             <SwiperSlide>
-              <img src={realEst2} className="blogImg" />
+              <img src={realEst2} className="blog-img" />
               <h2>Homefront Hub: Exploring the Real Estate Market</h2>
               <p>
                 Stay up-to-date with the latest trends and developments in the
@@ -175,7 +175,7 @@ const Blog = () => {
               </h5>
             </SwiperSlide>
             <SwiperSlide>
-              <img src={realEst3} className="blogImg" />
+              <img src={realEst3} className="blog-img" />
               <h2>The Realty Report: Insights for Property Investors</h2>
               <p>
                 Immerse yourself in the captivating world of blockchain

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import '../../../App.css';
-import './Transactions.css';
 import { useState, useEffect } from 'react';
+import '../../../styles/Transactions.css';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';

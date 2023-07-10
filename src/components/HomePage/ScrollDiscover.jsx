@@ -1,5 +1,5 @@
 import '../../App.css';
-import './ScrollDiscover.css';
+import '../../styles/ScrollDiscover.css';
 
 const ScrollDiscover = () => {
   return (

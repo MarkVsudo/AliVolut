@@ -1,7 +1,7 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/alt-text */
 import '../../App.css';
-import './MainPage.css';
+import '../../styles/MainPage.css';
 import { useRef } from 'react';
 import chair from '../../assets/chair.svg';
 import hand from '../../assets/hand.svg';
@@ -49,11 +49,11 @@ const MainPage = () => {
         onSubscriptionsClick={handleRedirectToSubscription}
         onBlogClick={handleRedirectToBlog}
       />
-      <div className="heroSection">
-        <h1 className="mainText">
+      <div className="hero-section">
+        <h1 className="main-text">
           Best App For Managing <br></br>Your Funds!
         </h1>
-        <h5 className="secondaryText">
+        <h5 className="secondary-text">
           Shop with pleasure and spend your money sparingly.
         </h5>
         <div className="mainIcons">

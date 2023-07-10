@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import { useState, useEffect } from 'react';
 import '../../App.css';
-import './ProfilePage.css';
+import '../../styles/ProfilePage.css';
 import Avatar from '@mui/material/Avatar';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
@@ -98,53 +98,53 @@ const ProfilePage = () => {
   return (
     <>
       <AppBarNotMainPage />
-      <section className="profileSection">
-        <aside className="profileAside">
+      <section className="profile-section">
+        <aside className="profile-aside">
           <div className="user">
             <Avatar
               alt="Profile Avatar"
               src={profileImage}
-              className="avatarProfile"
+              className="avatar-profile"
             />
             <div>
-              <span className="profileName">{profileName}</span>
+              <span className="profile-name">{profileName}</span>
               <button onClick={handleEditButtonClick}>Edit profile</button>
             </div>
           </div>
 
           <div className="line" />
 
-          <div className="listSettings">
-            <div className="listSettingBlock">
-              <RecentActorsIcon className="profileIcons" />
+          <div className="list-settings">
+            <div className="list-setting-block">
+              <RecentActorsIcon className="profile-icons" />
               <button onClick={() => handleSectionClick('accounts')}>
                 Accounts
               </button>
             </div>
-            <div className="listSettingBlock">
-              <StyleIcon className="profileIcons" />
+            <div className="list-setting-block">
+              <StyleIcon className="profile-icons" />
               <button onClick={() => handleSectionClick('cards')}>Cards</button>
             </div>
-            <div className="listSettingBlock">
-              <MultipleStopIcon className="profileIcons" />
+            <div className="list-setting-block">
+              <MultipleStopIcon className="profile-icons" />
               <button onClick={() => handleSectionClick('transactions')}>
                 Transactions
               </button>
             </div>
-            <div className="listSettingBlock">
-              <PersonSearchIcon className="profileIcons" />
+            <div className="list-setting-block">
+              <PersonSearchIcon className="profile-icons" />
               <button onClick={() => handleSectionClick('personal')}>
                 Personal Information
               </button>
             </div>
-            <div className="listSettingBlock">
-              <SettingsIcon className="profileIcons" />
+            <div className="list-setting-block">
+              <SettingsIcon className="profile-icons" />
               <button onClick={() => handleSectionClick('settings')}>
                 Settings
               </button>
             </div>
-            <div className="listSettingBlock">
-              <LogoutIcon className="profileIcons" />
+            <div className="list-setting-block">
+              <LogoutIcon className="profile-icons" />
               <button
                 onClick={async () => {
                   try {
@@ -159,7 +159,7 @@ const ProfilePage = () => {
             </div>
           </div>
         </aside>
-        <main className="profileMain">{renderMainSection()}</main>
+        <main className="profile-main">{renderMainSection()}</main>
       </section>
 
       <Modal open={isEditModalOpen} onClose={handleModalClose}>
