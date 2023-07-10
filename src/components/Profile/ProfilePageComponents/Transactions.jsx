@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import '../../../App.css';
 import './Transactions.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -47,7 +47,7 @@ const Transactions = () => {
       return `$${amount.toFixed(2)}`;
     };
 
-    for (let i = 0; i < 14; i += 1) {
+    for (let i = 0; i < 5; i += 1) {
       const transactionId = `#${transactionIdCounter
         .toString()
         .padStart(8, '0')}`;
@@ -81,10 +81,14 @@ const Transactions = () => {
     return transactions;
   };
 
-  const transactions = generateTransactions();
-
+  const [transactions, setTransactions] = useState([]);
   const [sortedTransactions, setSortedTransactions] = useState([]);
   const [sortAscending, setSortAscending] = useState(true);
+
+  useEffect(() => {
+    const transactionsData = generateTransactions();
+    setTransactions(transactionsData);
+  }, []);
 
   const sortTransactionsByDate = () => {
     const sorted = [...transactions].sort((a, b) => {
