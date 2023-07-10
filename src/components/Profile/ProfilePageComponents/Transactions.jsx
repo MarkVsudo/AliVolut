@@ -12,6 +12,10 @@ import Paper from '@mui/material/Paper';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 
 const Transactions = () => {
+  const [transactionsState, setTransactionsState] = useState([]);
+  const [sortedTransactions, setSortedTransactions] = useState([]);
+  const [sortAscending, setSortAscending] = useState(true);
+
   // Generate dummy transactions
   const generateTransactions = () => {
     const startDate = new Date();
@@ -81,16 +85,6 @@ const Transactions = () => {
     return transactions;
   };
 
-  const [transactions, setTransactions] = useState([]);
-  const [sortedTransactions, setSortedTransactions] = useState([]);
-  const [sortAscending, setSortAscending] = useState(true);
-
-  useEffect(() => {
-    const transactionsData = generateTransactions();
-    setTransactions(transactionsData);
-    setSortedTransactions(transactionsData);
-  }, []);
-
   const sortTransactionsByDate = () => {
     const sorted = [...sortedTransactions].sort((a, b) => {
       const dateA = new Date(a.date).getTime();
@@ -101,9 +95,15 @@ const Transactions = () => {
     setSortAscending(!sortAscending);
   };
 
+  useEffect(() => {
+    const transactionsData = generateTransactions();
+    setTransactionsState(transactionsData);
+    setSortedTransactions(transactionsData);
+  }, []);
+
   const displayedTransactions = sortedTransactions.length
     ? sortedTransactions
-    : transactions;
+    : transactionsState;
 
   return (
     <TableContainer component={Paper}>
