@@ -1,0 +1,109 @@
+/* Pricing cards*/
+
+.subscription-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: max-content;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+.subscription-section h2 {
+  margin-bottom: 5rem;
+  font-size: 3.5rem;
+}
+
+.subscription-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-inline: 5rem;
+  gap: 3rem;
+  text-align: left;
+  width: 100%;
+  color: var(--white);
+}
+
+[class^='sb-card-'] {
+  padding: 3rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.type-plan,
+.price-plan {
+  text-align: center;
+}
+
+.type-plan {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.price-plan {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+[class^='sb-card-']:nth-child(odd) {
+  background-color: #3d60dd;
+}
+
+.sb-card-2 {
+  background-color: var(--cyan);
+  transform: translateY(-3.5%);
+  height: 107%;
+}
+
+.sb-card-2 .type-plan {
+  margin-top: 6%;
+}
+
+[class^='sb-card-'] li {
+  font-size: 1rem;
+  line-height: 2.75rem;
+  align-self: flex-start;
+}
+
+.sb-tick {
+  font-size: 1.1rem !important;
+  color: var(--white);
+  margin-right: 0.25rem;
+}
+
+.btn-subscription {
+  width: 12rem;
+  margin-block: 1rem;
+  background-color: #3d60dd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1rem 0.75rem 1rem 0.75rem;
+  border-radius: 2rem;
+  transition: all 250ms ease-in-out;
+  font-weight: 600;
+  text-align: center;
+}
+
+.btn-subscription:hover {
+  color: #3d60dd;
+  background-color: var(--light-blue);
+}
+
+[class^='sb-card-']:nth-child(odd) .btn-subscription:hover {
+  color: var(--cyan);
+  background-color: var(--light-blue);
+}
+
+[class^='sb-card-']:nth-child(odd) .btn-subscription {
+  background-color: var(--cyan);
+}

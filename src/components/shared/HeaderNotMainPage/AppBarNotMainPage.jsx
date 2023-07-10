@@ -3,9 +3,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
 import '../../../App.css';
+import '../../../styles/Header.css';
 
 import { useState, useEffect } from 'react';
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -30,8 +30,7 @@ const settings = [
       window.location.href = '/profile';
     }
   },
-  'Account',
-  'Dashboard',
+  'Transactions',
   {
     label: 'Logout',
     onClick: async () => {
@@ -41,7 +40,7 @@ const settings = [
         console.error(error);
       }
     }
-  },
+  }
 ];
 
 const AppBarNotMainPage = () => {
@@ -100,9 +99,9 @@ const AppBarNotMainPage = () => {
                   width: '8rem',
                   height: '4rem'
                 }}
-                className="aliLogo"
+                className="ali-logo"
               />
-              <CurrencyBitcoinIcon className="btcLogo" />
+              <CurrencyBitcoinIcon className="btc-logo" />
             </a>
           </Box>
 

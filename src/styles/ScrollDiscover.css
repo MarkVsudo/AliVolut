@@ -1,0 +1,48 @@
+/* SCROLL DOWN MOUSE */
+
+.moving-mouse-holder {
+  position: absolute;
+  margin: auto;
+  margin-top: 60px;
+  width: 170px;
+  position: absolute;
+  left: 52%;
+  bottom: 3%;
+  transform: translate(-50%, -50%);
+}
+
+.moving-mouse-holder .mouse {
+  width: 26px;
+  height: 40px;
+  position: relative;
+  right: 0;
+  border-radius: 18px;
+  border: 2px solid var(--black);
+}
+
+.moving-mouse-holder .mouse-button {
+  background-color: var(--black);
+  width: 4px;
+  height: 10px;
+  border-radius: 2px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  margin: 0 0 0 -2px;
+  animation: mouse-scroll 1s infinite alternate;
+}
+
+.discover {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--black);
+  text-transform: capitalize;
+}
+
+@keyframes mouse-scroll {
+  to {
+    transform: translate(0, 6px) scale(1, 0.8);
+  }
+}

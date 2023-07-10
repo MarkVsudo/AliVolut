@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import '../../App.css';
+import '../../styles/CardsSection.css';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import earth from '../../assets/earth.png';
 import vault from '../../assets/vault.png';
@@ -10,8 +11,8 @@ import stock2 from '../../assets/stock2.png';
 
 const CardsSection = () => {
   return (
-    <div className="cardsSection" id="cards">
-      <div className="cardsTitles">
+    <div className="cards-section">
+      <div className="cards-titles">
         <h5>Your daily needs</h5>
         <h2>
           Send, spend and save <br />
@@ -22,7 +23,7 @@ const CardsSection = () => {
           <br /> money in one place
         </h4>
       </div>
-      <div className="cardsGrid">
+      <div className="cards-grid">
         <div className="card-1">
           <div>
             <h2>
@@ -33,7 +34,8 @@ const CardsSection = () => {
               accounts with anyone <br /> in over 200 countries
             </h4>
             <a>
-              Discover easy payments <ChevronRightIcon className="rightArrow" />
+              Discover easy payments{' '}
+              <ChevronRightIcon className="right-arrow" />
             </a>
           </div>
           <img src={earth} className="earth" />
@@ -45,7 +47,7 @@ const CardsSection = () => {
             </h2>
             <img src={vault} />
             <a>
-              Safes <ChevronRightIcon className="rightArrow" />
+              Safes <ChevronRightIcon className="right-arrow" />
             </a>
           </div>
           <div className="card-3">
@@ -57,7 +59,7 @@ const CardsSection = () => {
               <img src={stock2} />
             </div>
             <a>
-              View Subscription <ChevronRightIcon className="rightArrow" />
+              View Subscription <ChevronRightIcon className="right-arrow" />
             </a>
           </div>
         </div>

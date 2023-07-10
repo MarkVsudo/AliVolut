@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 import { useState, useEffect } from 'react';
 import '../../App.css';
+import '../../styles/ProfilePage.css';
 import Avatar from '@mui/material/Avatar';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
@@ -12,8 +13,14 @@ import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import SettingsIcon from '@mui/icons-material/Settings';
 import StyleIcon from '@mui/icons-material/Style';
 import LogoutIcon from '@mui/icons-material/Logout';
+import MultipleStopIcon from '@mui/icons-material/MultipleStop';
 import AppBarNotMainPage from '../shared/HeaderNotMainPage/AppBarNotMainPage';
 import { viravaDefault } from '../../config/authConfig';
+import PersonalInformation from './ProfilePageComponents/PersonalInformation';
+import Accounts from './ProfilePageComponents/Accounts';
+import Cards from './ProfilePageComponents/Cards';
+import Settings from './ProfilePageComponents/Settings';
+import Transactions from './ProfilePageComponents/Transactions';
 
 const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('accounts');
@@ -74,13 +81,15 @@ const ProfilePage = () => {
   const renderMainSection = () => {
     switch (activeSection) {
       case 'accounts':
-        return <div>Accounts Section</div>;
+        return <Accounts />;
       case 'cards':
-        return <div>Cards Section</div>;
+        return <Cards />;
+      case 'transactions':
+        return <Transactions />;
       case 'personal':
-        return <div>Personal Information Section</div>;
+        return <PersonalInformation />;
       case 'settings':
-        return <div>Settings Section</div>;
+        return <Settings />;
       default:
         return null;
     }
@@ -89,47 +98,53 @@ const ProfilePage = () => {
   return (
     <>
       <AppBarNotMainPage />
-      <section className="profileSection">
-        <aside className="profileAside">
+      <section className="profile-section">
+        <aside className="profile-aside">
           <div className="user">
             <Avatar
               alt="Profile Avatar"
               src={profileImage}
-              className="avatarProfile"
+              className="avatar-profile"
             />
             <div>
-              <span className="profileName">{profileName}</span>
+              <span className="profile-name">{profileName}</span>
               <button onClick={handleEditButtonClick}>Edit profile</button>
             </div>
           </div>
 
           <div className="line" />
 
-          <div className="listSettings">
-            <div className="listSettingBlock">
-              <RecentActorsIcon className="profileIcons" />
+          <div className="list-settings">
+            <div className="list-setting-block">
+              <RecentActorsIcon className="profile-icons" />
               <button onClick={() => handleSectionClick('accounts')}>
                 Accounts
               </button>
             </div>
-            <div className="listSettingBlock">
-              <StyleIcon className="profileIcons" />
+            <div className="list-setting-block">
+              <StyleIcon className="profile-icons" />
               <button onClick={() => handleSectionClick('cards')}>Cards</button>
             </div>
-            <div className="listSettingBlock">
-              <PersonSearchIcon className="profileIcons" />
+            <div className="list-setting-block">
+              <MultipleStopIcon className="profile-icons" />
+              <button onClick={() => handleSectionClick('transactions')}>
+                Transactions
+              </button>
+            </div>
+            <div className="list-setting-block">
+              <PersonSearchIcon className="profile-icons" />
               <button onClick={() => handleSectionClick('personal')}>
                 Personal Information
               </button>
             </div>
-            <div className="listSettingBlock">
-              <SettingsIcon className="profileIcons" />
+            <div className="list-setting-block">
+              <SettingsIcon className="profile-icons" />
               <button onClick={() => handleSectionClick('settings')}>
                 Settings
               </button>
             </div>
-            <div className="listSettingBlock">
-              <LogoutIcon className="profileIcons" />
+            <div className="list-setting-block">
+              <LogoutIcon className="profile-icons" />
               <button
                 onClick={async () => {
                   try {
@@ -144,7 +159,7 @@ const ProfilePage = () => {
             </div>
           </div>
         </aside>
-        <main className="profileMain">{renderMainSection()}</main>
+        <main className="profile-main">{renderMainSection()}</main>
       </section>
 
       <Modal open={isEditModalOpen} onClose={handleModalClose}>

@@ -1,0 +1,25 @@
+
+/* Transactions profile page */
+
+.pending {
+    color: orange;
+  }
+  
+  .completed {
+    background-color: rgb(146, 227, 162);
+    color: green !important;
+  }
+  
+  .canceled {
+    color: red;
+  }
+  
+  .received {
+    font-weight: bold;
+  }
+  
+  .sent {
+    color: red;
+  }
+  
+/* End of Transactions */

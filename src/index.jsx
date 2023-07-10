@@ -11,9 +11,8 @@ import reportWebVitals from './reportWebVitals';
 
 viravaDefault.init(authConfig);
 
-viravaDefault.login().then((user) => {
+viravaDefault.login().then(() => {
   const root = ReactDOM.createRoot(document.getElementById('root'));
-  console.log(user);
   root.render(
     <React.StrictMode>
       <App />

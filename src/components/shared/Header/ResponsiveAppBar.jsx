@@ -3,7 +3,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
 import '../../../App.css';
-
+import '../../../styles/Header.css';
 import { useState, useEffect } from 'react';
 
 import AppBar from '@mui/material/AppBar';
@@ -23,7 +23,6 @@ import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import MyLogo from '../../../assets/alivolut-logo.svg';
 import { viravaDefault } from '../../../config/authConfig';
 
-
 const pages = ['Offerings', 'Subscriptions', 'Blog'];
 const settings = [
   {
@@ -33,8 +32,7 @@ const settings = [
       window.location.href = '/profile';
     }
   },
-  'Account',
-  'Dashboard',
+  'Transactions',
   {
     label: 'Logout',
     onClick: async () => {
@@ -44,9 +42,8 @@ const settings = [
         console.error(error);
       }
     }
-  },
+  }
 ];
-
 
 const ResponsiveAppBar = ({
   onOfferingsClick,
@@ -123,9 +120,9 @@ const ResponsiveAppBar = ({
                   width: '8rem',
                   height: '4rem'
                 }}
-                className="aliLogo"
+                className="ali-logo"
               />
-              <CurrencyBitcoinIcon className="btcLogo" />
+              <CurrencyBitcoinIcon className="btc-logo" />
             </a>
           </Box>
 
@@ -198,7 +195,9 @@ const ResponsiveAppBar = ({
                 key={page}
                 onClick={() => handleButtonClick(page)}
                 className={
-                  activeButton === page ? 'activeButton navLinks' : 'navLinks'
+                  activeButton === page
+                    ? 'active-button nav-links'
+                    : 'nav-links'
                 }
                 sx={{
                   my: 2
