@@ -169,6 +169,15 @@
   background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
+.create-acc-button{
+  background-color: rgba(0, 0, 0, 0.872) !important;
+  margin-top: .5rem !important;
+}
+
+.create-acc-button:is(:hover, :focus){
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
 .modal-account{
   max-width: 30vw;
   background-color: var(--white);

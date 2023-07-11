@@ -97,18 +97,20 @@ const Accounts = () => {
       currency: accCurr,
       amount: accAmount
     };
-    setAccounts([...accounts, newAccount]);
     const amount = parseFloat(accAmount);
     if (!Number.isNaN(amount) && amount <= totalAmount) {
+      setAccounts([...accounts, newAccount]);
       setTotalAmount(totalAmount - amount);
       setAccType('');
       setAccCurr('USD');
       setAccAmount('');
       setIsAddAccountModalOpen(false);
-    }else{
+    } else {
+      setIsAddAccountModalOpen(false);
       alert('Insufficient balance for creating a new account');
     }
   };
+  
 
   const handleAddAccountClick = () => {
     setIsAddAccountModalOpen(true);
@@ -358,6 +360,13 @@ const Accounts = () => {
               fullWidth
               margin="normal"
             />
+            <TextField
+              label="Account Amount"
+              value={accAmount}
+              onChange={handleAccAmountChange}
+              fullWidth
+              margin="normal"
+            />
             <Select
               value={accCurr}
               onChange={handleAccCurrChange}
@@ -368,19 +377,12 @@ const Accounts = () => {
               <MenuItem value="EUR">€ EUR</MenuItem>
               <MenuItem value="GBP">£ GBP</MenuItem>
             </Select>
-            <TextField
-              label="Account Amount"
-              value={accAmount}
-              onChange={handleAccAmountChange}
-              fullWidth
-              margin="normal"
-            />
             <Button
               onClick={handleCreateAccount}
               variant="contained"
               className="create-acc-button"
             >
-              Create New Account
+              Create Account
             </Button>
           </div>
         </div>
