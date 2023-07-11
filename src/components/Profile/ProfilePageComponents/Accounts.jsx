@@ -4,8 +4,8 @@
 /* eslint-disable react/button-has-type */
 import '../../../App.css';
 import '../../../styles/Accounts.css';
-
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { Modal, Button, Select, MenuItem, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import SendIcon from '@mui/icons-material/Send';
@@ -38,6 +38,23 @@ const Accounts = () => {
   const [accAmount, setAccAmount] = useState('');
   const [totalAmount, setTotalAmount] = useState(2000);
 
+  const [exchangeRates, setExchangeRates] = useState({});
+
+  useEffect(() => {
+    const fetchExchangeRates = async () => {
+      try {
+        const response = await axios.get(
+          'https://api.exchangerate-api.com/v4/latest/USD'
+        );
+        setExchangeRates(response.data.rates);
+      } catch (error) {
+        console.error('Error fetching exchange rates:', error);
+      }
+    };
+
+    fetchExchangeRates();
+  }, []);
+
   const handleTransferClick = () => {
     setIsTransferModalOpen(true);
   };
@@ -48,8 +65,18 @@ const Accounts = () => {
 
   const handleTransfer = () => {
     const transferAmountValue = parseFloat(transferAmount);
-    if (transferAmountValue <= totalAmount) {
-      const remainingAmount = totalAmount - transferAmountValue;
+    const selectedCurrency = transferCurrency;
+
+    // Convert the transfer amount to USD
+    let usdAmount = transferAmountValue;
+    if (selectedCurrency === 'EUR') {
+      usdAmount = transferAmountValue / exchangeRates.EUR;
+    } else if (selectedCurrency === 'GBP') {
+      usdAmount = transferAmountValue / exchangeRates.GBP;
+    }
+
+    if (usdAmount <= totalAmount) {
+      const remainingAmount = totalAmount - usdAmount;
       setTotalAmount(remainingAmount);
       setIsTransferModalOpen(false);
     } else {
@@ -67,7 +94,17 @@ const Accounts = () => {
 
   const handleDeposit = () => {
     const depositAmountValue = parseFloat(depositAmount);
-    const newTotalAmount = totalAmount + depositAmountValue;
+    const selectedCurrency = depositCurrency;
+
+    // Convert the deposit amount to USD
+    let usdAmount = depositAmountValue;
+    if (selectedCurrency === 'EUR') {
+      usdAmount = depositAmountValue / exchangeRates.EUR;
+    } else if (selectedCurrency === 'GBP') {
+      usdAmount = depositAmountValue / exchangeRates.GBP;
+    }
+
+    const newTotalAmount = totalAmount + usdAmount;
     setTotalAmount(newTotalAmount);
     setIsDepositModalOpen(false);
   };
@@ -82,8 +119,18 @@ const Accounts = () => {
 
   const handleWithdraw = () => {
     const withdrawAmountValue = parseFloat(withdrawAmount);
-    if (withdrawAmountValue <= totalAmount) {
-      const newTotalAmount = totalAmount - withdrawAmountValue;
+    const selectedCurrency = withdrawCurrency;
+
+    // Convert the withdrawal amount to USD
+    let usdAmount = withdrawAmountValue;
+    if (selectedCurrency === 'EUR') {
+      usdAmount = withdrawAmountValue / exchangeRates.EUR;
+    } else if (selectedCurrency === 'GBP') {
+      usdAmount = withdrawAmountValue / exchangeRates.GBP;
+    }
+
+    if (usdAmount <= totalAmount) {
+      const newTotalAmount = totalAmount - usdAmount;
       setTotalAmount(newTotalAmount);
       setIsWithdrawModalOpen(false);
     } else {
