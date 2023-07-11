@@ -110,7 +110,6 @@ const Accounts = () => {
       alert('Insufficient balance for creating a new account');
     }
   };
-  
 
   const handleAddAccountClick = () => {
     setIsAddAccountModalOpen(true);
