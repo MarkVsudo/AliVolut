@@ -51,7 +51,7 @@
   transition: all 250ms ease-in-out;
 }
 
-[class$='button-head']:is(:hover, :focus) {
+[class$='button-head']:hover {
   border-radius: 10%;
 }
 
@@ -100,7 +100,7 @@
   transition: all 250ms ease-in-out;
 }
 
-.add-acc-button:is(:hover, :focus){
+.add-acc-button:hover{
   color: #0ecfa8;
 }
 
@@ -144,6 +144,14 @@
   font-size: 1.125rem;
 }
 
+.transfer-button{
+  background-color: rgba(0, 0, 0, 0.872) !important;
+}
+
+.transfer-button:is(:hover, :focus){
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
 .modal-account{
   max-width: 30vw;
   background-color: var(--white);
@@ -158,3 +166,55 @@
 .text-field-acc{
   margin-block: 1rem;
 }
+
+.payment-providers h3{
+  margin-block: 1rem;
+}
+
+.container-deposit-buttons{
+  display: grid;
+  justify-items:legacy;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+  margin-inline: auto;
+}
+
+.google-apple-pay{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1rem;
+}
+
+.deposit-button{
+  background-color: rgba(0, 0, 0, 0.872) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 250ms ease-in-out;
+  width: 50%;
+}
+
+.internet-deposit{
+  width: 100% !important;
+}
+
+.deposit-button:is(:hover, :focus){
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.payment-icon-google{
+  width: 50px;
+}
+
+.payment-icon-apple{
+  margin-right: .75rem;
+  width: 30px;
+}
+
+.payment-icon-internet{
+  margin-right: .75rem;
+  width: 30px;
+}
+
