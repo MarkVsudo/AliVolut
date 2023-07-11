@@ -98,6 +98,8 @@ const ResponsiveAppBar = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos, visible]);
 
+  const profileImage = localStorage.getItem('profileImage');
+
   return (
     <AppBar
       position="sticky"
@@ -211,7 +213,7 @@ const ResponsiveAppBar = ({
           <Box sx={{ flexGrow: 0, marginLeft: '7rem' }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={profileImage} />
               </IconButton>
             </Tooltip>
             <Menu
