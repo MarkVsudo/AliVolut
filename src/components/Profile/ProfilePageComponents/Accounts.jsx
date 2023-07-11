@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/button-has-type */
@@ -9,13 +10,18 @@ import { Modal, Button, Select, MenuItem, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import SendIcon from '@mui/icons-material/Send';
 import RssFeedIcon from '@mui/icons-material/RssFeed';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import USAflag from '../../../assets/USA-flag.svg';
+import EURflag from '../../../assets/euro-flag.png';
+import GBflag from '../../../assets/GB-flag.svg';
 import googleIcon from '../../../assets/google-icon.png';
 import appleIcon from '../../../assets/apple-icon.png';
 
 const Accounts = () => {
   const [isTransferModalOpen, setIsTransferModalOpen] = useState(false);
   const [isDepositModalOpen, setIsDepositModalOpen] = useState(false);
+  const [isWithdrawModalOpen, setIsWithdrawModalOpen] = useState(false);
+  const [isAddAccountModalOpen, setIsAddAccountModalOpen] = useState(false);
   const [transferNonce, setTransferNonce] = useState('');
   const [transferAmount, setTransferAmount] = useState('');
   const [transferUserId, setTransferUserId] = useState('');
@@ -23,6 +29,13 @@ const Accounts = () => {
   const [depositAmount, setDepositAmount] = useState('');
   const [depositCurrency, setDepositCurrency] = useState('USD');
   const [depositNonce, setDepositNonce] = useState('');
+  const [withdrawAmount, setWithdrawAmount] = useState('');
+  const [withdrawCurrency, setWithdrawCurrency] = useState('USD');
+  const [withdrawNonce, setWithdrawNonce] = useState('');
+  const [accounts, setAccounts] = useState([]);
+  const [accType, setAccType] = useState('');
+  const [accCurr, setAccCurr] = useState('USD');
+  const [accAmount, setAccAmount] = useState('');
   const [totalAmount, setTotalAmount] = useState(2000);
 
   const handleTransferClick = () => {
@@ -59,6 +72,64 @@ const Accounts = () => {
     setIsDepositModalOpen(false);
   };
 
+  const handleWithdrawClick = () => {
+    setIsWithdrawModalOpen(true);
+  };
+
+  const handleWithdrawModalClose = () => {
+    setIsWithdrawModalOpen(false);
+  };
+
+  const handleWithdraw = () => {
+    const withdrawAmountValue = parseFloat(withdrawAmount);
+    if (withdrawAmountValue <= totalAmount) {
+      const newTotalAmount = totalAmount - withdrawAmountValue;
+      setTotalAmount(newTotalAmount);
+      setIsWithdrawModalOpen(false);
+    } else {
+      alert('Insufficient balance for withdrawal');
+    }
+  };
+
+  const handleCreateAccount = () => {
+    const newAccount = {
+      type: accType,
+      currency: accCurr,
+      amount: accAmount
+    };
+    setAccounts([...accounts, newAccount]);
+    const amount = parseFloat(accAmount);
+    if (!Number.isNaN(amount) && amount <= totalAmount) {
+      setTotalAmount(totalAmount - amount);
+      setAccType('');
+      setAccCurr('USD');
+      setAccAmount('');
+      setIsAddAccountModalOpen(false);
+    }else{
+      alert('Insufficient balance for creating a new account');
+    }
+  };
+
+  const handleAddAccountClick = () => {
+    setIsAddAccountModalOpen(true);
+  };
+
+  const handleAddAccountModalClose = () => {
+    setIsAddAccountModalOpen(false);
+  };
+
+  const handleAccTypeChange = (event) => {
+    setAccType(event.target.value);
+  };
+
+  const handleAccCurrChange = (event) => {
+    setAccCurr(event.target.value);
+  };
+
+  const handleAccAmountChange = (event) => {
+    setAccAmount(event.target.value);
+  };
+
   return (
     <div className="account-block">
       <div className="account-head">
@@ -79,23 +150,46 @@ const Accounts = () => {
           <button className="deposit-button-head" onClick={handleDepositClick}>
             <AddIcon className="button-icons" />
           </button>
+          <button
+            className="withdraw-button-head"
+            onClick={handleWithdrawClick}
+          >
+            <AccountBalanceIcon className="button-icons" />
+          </button>
         </div>
       </div>
       <div className="line" />
       <div className="account-main">
         <div className="account-titles">
           <span className="acc-title">All accounts</span>
-          <button className="add-acc-button">Add new account</button>
+          <button className="add-acc-button" onClick={handleAddAccountClick}>
+            Add new account
+          </button>{' '}
         </div>
         <div className="container-separate-blocks">
-          <div className="separate-acc-block">
-            <div className="acc-description">
-              <span className="acc-type">Travel account</span>
-              <span className="acc-curr">USD</span>
-              <span className="acc-amount">$180</span>
+          {accounts.map((account, index) => (
+            <div className="separate-acc-block" key={index}>
+              <div className="acc-description">
+                <span className="acc-type">{account.type}</span>
+                <span className="acc-curr">{account.currency}</span>
+                <span className="acc-amount">
+                  {account.currency === 'USD' && ' $'}
+                  {account.currency === 'EUR' && ' €'}
+                  {account.currency === 'GBP' && ' £'}
+                  {account.amount}
+                </span>
+              </div>
+              {account.currency === 'USD' && (
+                <img className="acc-flag" src={USAflag} alt="USA flag" />
+              )}
+              {account.currency === 'EUR' && (
+                <img className="acc-flag" src={EURflag} alt="EUR flag" />
+              )}
+              {account.currency === 'GBP' && (
+                <img className="acc-flag" src={GBflag} alt="GBP flag" />
+              )}
             </div>
-            <img className="acc-flag" src={USAflag} alt="USA flag" />
-          </div>
+          ))}
         </div>
       </div>
 
@@ -137,7 +231,7 @@ const Accounts = () => {
             <Button
               onClick={handleTransfer}
               variant="contained"
-              className='transfer-button'
+              className="transfer-button"
             >
               Transfer
             </Button>
@@ -204,6 +298,90 @@ const Accounts = () => {
                 </Button>
               </div>
             </div>
+          </div>
+        </div>
+      </Modal>
+
+      <Modal open={isWithdrawModalOpen} onClose={handleWithdrawModalClose}>
+        <div className="modal-account">
+          <div className="modal-content">
+            <h2>Withdrawal Information</h2>
+            <TextField
+              label="Nonce"
+              value={withdrawNonce}
+              onChange={(e) => setWithdrawNonce(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Security Code"
+              type="password"
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Amount"
+              value={withdrawAmount}
+              onChange={(e) => setWithdrawAmount(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <Select
+              value={withdrawCurrency}
+              onChange={(e) => setWithdrawCurrency(e.target.value)}
+              fullWidth
+              margin="normal"
+            >
+              <MenuItem value="USD">$ USD</MenuItem>
+              <MenuItem value="EUR">€ EUR</MenuItem>
+              <MenuItem value="GBP">£ GBP</MenuItem>
+            </Select>
+            <Button
+              onClick={handleWithdraw}
+              variant="contained"
+              className="withdraw-button"
+            >
+              Withdraw
+            </Button>
+          </div>
+        </div>
+      </Modal>
+
+      <Modal open={isAddAccountModalOpen} onClose={handleAddAccountModalClose}>
+        <div className="modal-account">
+          <div className="modal-content">
+            <h2>Create New Account</h2>
+            <TextField
+              label="Account Type"
+              value={accType}
+              onChange={handleAccTypeChange}
+              fullWidth
+              margin="normal"
+            />
+            <Select
+              value={accCurr}
+              onChange={handleAccCurrChange}
+              fullWidth
+              margin="normal"
+            >
+              <MenuItem value="USD">$ USD</MenuItem>
+              <MenuItem value="EUR">€ EUR</MenuItem>
+              <MenuItem value="GBP">£ GBP</MenuItem>
+            </Select>
+            <TextField
+              label="Account Amount"
+              value={accAmount}
+              onChange={handleAccAmountChange}
+              fullWidth
+              margin="normal"
+            />
+            <Button
+              onClick={handleCreateAccount}
+              variant="contained"
+              className="create-acc-button"
+            >
+              Create New Account
+            </Button>
           </div>
         </div>
       </Modal>

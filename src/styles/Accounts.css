@@ -71,6 +71,14 @@
   font-size: 2rem !important;
 }
 
+.withdraw-button-head {
+  background-color: var(--white);
+}
+
+.withdraw-button-head .button-icons {
+  font-size: 2.25rem !important;
+}
+
 .account-main {
   display: flex;
   flex-direction: column;
@@ -149,6 +157,15 @@
 }
 
 .transfer-button:is(:hover, :focus){
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.withdraw-button{
+  background-color: rgba(0, 0, 0, 0.872) !important;
+  margin-top: .5rem !important;
+}
+
+.withdraw-button:is(:hover, :focus){
   background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
