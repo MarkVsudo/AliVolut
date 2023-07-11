@@ -79,7 +79,6 @@ const AppBarNotMainPage = () => {
 
   const profileImage = localStorage.getItem('profileImage');
 
-
   return (
     <AppBar
       position="sticky"
@@ -162,7 +161,10 @@ const AppBarNotMainPage = () => {
 
           <Box sx={{ flexGrow: 0, marginLeft: '7rem' }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{ p: 0, backgroundColor: '#D3D3D3' }}
+              >
                 <Avatar alt="Remy Sharp" src={profileImage} />
               </IconButton>
             </Tooltip>
