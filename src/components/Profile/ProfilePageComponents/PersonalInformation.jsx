@@ -30,7 +30,7 @@ const PersonalInformation = () => {
   };
 
   const isPasswordValid = () => {
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])[A-Za-z\d@#$%^&+=]{8,}$/;
     return passwordRegex.test(password);
   };
 
@@ -81,7 +81,7 @@ const PersonalInformation = () => {
       {passwordError && (
         <p className="password-requirements">
           Password must be at least 8 characters long and contain an uppercase
-          letter and a number.
+          letter, a number and a special character.
         </p>
       )}
       <TextField
