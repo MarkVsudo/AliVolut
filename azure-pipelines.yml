@@ -6,7 +6,7 @@ pool:
 
 variables:
   imgContainerRegistry: 'cleverpine-docker-registry'
-  imgRepository: 'alivolut-curencey-ui'
+  imgRepository: 'alivolut-platform-ui'
   imgDockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   imgTag: '$(Build.BuildNumber)'
 
