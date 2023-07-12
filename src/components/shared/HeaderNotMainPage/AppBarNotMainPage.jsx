@@ -77,6 +77,8 @@ const AppBarNotMainPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos, visible]);
 
+  const profileImage = localStorage.getItem('profileImage');
+
   return (
     <AppBar
       position="sticky"
@@ -159,8 +161,11 @@ const AppBarNotMainPage = () => {
 
           <Box sx={{ flexGrow: 0, marginLeft: '7rem' }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{ p: 0, backgroundColor: '#D3D3D3' }}
+              >
+                <Avatar alt="Remy Sharp" src={profileImage} />
               </IconButton>
             </Tooltip>
             <Menu

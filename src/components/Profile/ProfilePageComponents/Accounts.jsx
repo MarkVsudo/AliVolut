@@ -4,8 +4,8 @@
 /* eslint-disable react/button-has-type */
 import '../../../App.css';
 import '../../../styles/Accounts.css';
-
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { Modal, Button, Select, MenuItem, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import SendIcon from '@mui/icons-material/Send';
@@ -38,6 +38,23 @@ const Accounts = () => {
   const [accAmount, setAccAmount] = useState('');
   const [totalAmount, setTotalAmount] = useState(2000);
 
+  const [exchangeRates, setExchangeRates] = useState({});
+
+  useEffect(() => {
+    const fetchExchangeRates = async () => {
+      try {
+        const response = await axios.get(
+          'https://api.exchangerate-api.com/v4/latest/USD'
+        );
+        setExchangeRates(response.data.rates);
+      } catch (error) {
+        console.error('Error fetching exchange rates:', error);
+      }
+    };
+
+    fetchExchangeRates();
+  }, []);
+
   const handleTransferClick = () => {
     setIsTransferModalOpen(true);
   };
@@ -48,8 +65,18 @@ const Accounts = () => {
 
   const handleTransfer = () => {
     const transferAmountValue = parseFloat(transferAmount);
-    if (transferAmountValue <= totalAmount) {
-      const remainingAmount = totalAmount - transferAmountValue;
+    const selectedCurrency = transferCurrency;
+
+    // Convert the transfer amount to USD
+    let usdAmount = transferAmountValue;
+    if (selectedCurrency === 'EUR') {
+      usdAmount = transferAmountValue / exchangeRates.EUR;
+    } else if (selectedCurrency === 'GBP') {
+      usdAmount = transferAmountValue / exchangeRates.GBP;
+    }
+
+    if (usdAmount <= totalAmount) {
+      const remainingAmount = totalAmount - usdAmount;
       setTotalAmount(remainingAmount);
       setIsTransferModalOpen(false);
     } else {
@@ -67,7 +94,17 @@ const Accounts = () => {
 
   const handleDeposit = () => {
     const depositAmountValue = parseFloat(depositAmount);
-    const newTotalAmount = totalAmount + depositAmountValue;
+    const selectedCurrency = depositCurrency;
+
+    // Convert the deposit amount to USD
+    let usdAmount = depositAmountValue;
+    if (selectedCurrency === 'EUR') {
+      usdAmount = depositAmountValue / exchangeRates.EUR;
+    } else if (selectedCurrency === 'GBP') {
+      usdAmount = depositAmountValue / exchangeRates.GBP;
+    }
+
+    const newTotalAmount = totalAmount + usdAmount;
     setTotalAmount(newTotalAmount);
     setIsDepositModalOpen(false);
   };
@@ -82,8 +119,18 @@ const Accounts = () => {
 
   const handleWithdraw = () => {
     const withdrawAmountValue = parseFloat(withdrawAmount);
-    if (withdrawAmountValue <= totalAmount) {
-      const newTotalAmount = totalAmount - withdrawAmountValue;
+    const selectedCurrency = withdrawCurrency;
+
+    // Convert the withdrawal amount to USD
+    let usdAmount = withdrawAmountValue;
+    if (selectedCurrency === 'EUR') {
+      usdAmount = withdrawAmountValue / exchangeRates.EUR;
+    } else if (selectedCurrency === 'GBP') {
+      usdAmount = withdrawAmountValue / exchangeRates.GBP;
+    }
+
+    if (usdAmount <= totalAmount) {
+      const newTotalAmount = totalAmount - usdAmount;
       setTotalAmount(newTotalAmount);
       setIsWithdrawModalOpen(false);
     } else {
@@ -110,7 +157,6 @@ const Accounts = () => {
       alert('Insufficient balance for creating a new account');
     }
   };
-  
 
   const handleAddAccountClick = () => {
     setIsAddAccountModalOpen(true);
@@ -136,7 +182,7 @@ const Accounts = () => {
     <div className="account-block">
       <div className="account-head">
         <div className="amount-plus-curr">
-          <span className="amount-main-acc">${totalAmount.toFixed(2)}</span>
+          <span className="amount-main-acc">&#36;{totalAmount.toFixed(2)}</span>
           <div className="currency">
             <img src={USAflag} alt="USA flag" />
             <span>Total balance in {transferCurrency}</span>
@@ -175,9 +221,9 @@ const Accounts = () => {
                 <span className="acc-type">{account.type}</span>
                 <span className="acc-curr">{account.currency}</span>
                 <span className="acc-amount">
-                  {account.currency === 'USD' && ' $'}
-                  {account.currency === 'EUR' && ' €'}
-                  {account.currency === 'GBP' && ' £'}
+                  {account.currency === 'USD' && <span>&#36;</span>}
+                  {account.currency === 'EUR' && <span>&#8364;</span>}
+                  {account.currency === 'GBP' && <span>&#163;</span>}
                   {account.amount}
                 </span>
               </div>
@@ -219,9 +265,9 @@ const Accounts = () => {
               fullWidth
               margin="normal"
             >
-              <MenuItem value="USD">$ USD</MenuItem>
-              <MenuItem value="EUR">€ EUR</MenuItem>
-              <MenuItem value="GBP">£ GBP</MenuItem>
+              <MenuItem value="USD">&#36; USD</MenuItem>
+              <MenuItem value="EUR">&#8364; EUR</MenuItem>
+              <MenuItem value="GBP">&#163; GBP</MenuItem>
             </Select>
             <TextField
               label="User ID"
@@ -265,9 +311,9 @@ const Accounts = () => {
               fullWidth
               margin="normal"
             >
-              <MenuItem value="USD">$ USD</MenuItem>
-              <MenuItem value="EUR">€ EUR</MenuItem>
-              <MenuItem value="GBP">£ GBP</MenuItem>
+              <MenuItem value="USD">&#36; USD</MenuItem>
+              <MenuItem value="EUR">&#8364; EUR</MenuItem>
+              <MenuItem value="GBP">&#163; GBP</MenuItem>
             </Select>
             <div className="payment-providers">
               <h3>Select Payment Provider:</h3>
@@ -334,9 +380,9 @@ const Accounts = () => {
               fullWidth
               margin="normal"
             >
-              <MenuItem value="USD">$ USD</MenuItem>
-              <MenuItem value="EUR">€ EUR</MenuItem>
-              <MenuItem value="GBP">£ GBP</MenuItem>
+              <MenuItem value="USD">&#36; USD</MenuItem>
+              <MenuItem value="EUR">&#8364; EUR</MenuItem>
+              <MenuItem value="GBP">&#163; GBP</MenuItem>
             </Select>
             <Button
               onClick={handleWithdraw}
@@ -373,9 +419,9 @@ const Accounts = () => {
               fullWidth
               margin="normal"
             >
-              <MenuItem value="USD">$ USD</MenuItem>
-              <MenuItem value="EUR">€ EUR</MenuItem>
-              <MenuItem value="GBP">£ GBP</MenuItem>
+              <MenuItem value="USD">&#36; USD</MenuItem>
+              <MenuItem value="EUR">&#8364; EUR</MenuItem>
+              <MenuItem value="GBP">&#163; GBP</MenuItem>
             </Select>
             <Button
               onClick={handleCreateAccount}

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import '../../../App.css';
 import { useState, useEffect } from 'react';
+import '../../../App.css';
 import '../../../styles/Transactions.css';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -20,25 +20,7 @@ const Transactions = () => {
   const generateTransactions = () => {
     const startDate = new Date();
     const transactions = [];
-    let transactionIdCounter = 10000000;
-
-    const countries = [
-      { name: 'USA', flag: '🇺🇸' },
-      { name: 'Canada', flag: '🇨🇦' },
-      { name: 'Germany', flag: '🇩🇪' },
-      { name: 'France', flag: '🇫🇷' },
-      { name: 'United Kingdom', flag: '🇬🇧' },
-      { name: 'Greece', flag: '🇬🇷' },
-      { name: 'Bulgaria', flag: '🇧🇬' },
-      { name: 'Norway', flag: '🇳🇴' },
-      { name: 'Finland', flag: '🇫🇮' },
-      { name: 'Peru', flag: '🇵🇪' }
-    ];
-
-    const getRandomCountry = () => {
-      const randomIndex = Math.floor(Math.random() * countries.length);
-      return countries[randomIndex];
-    };
+    let transactionIdCounter = 10000;
 
     const getRandomStatus = () => {
       const statuses = ['Pending', 'Completed', 'Canceled'];
@@ -57,28 +39,27 @@ const Transactions = () => {
     };
 
     for (let i = 0; i < 15; i += 1) {
-      const transactionId = `#${transactionIdCounter
-        .toString()
-        .padStart(8, '0')}`;
+      const id = `#${transactionIdCounter.toString().padStart(5, '0')}`;
       transactionIdCounter += 1;
 
-      const country = getRandomCountry();
       const status = getRandomStatus();
       const type = getRandomType();
       const amount = (i + 1) * 100.0;
       const formattedAmount = formatCurrency(amount);
 
       const transaction = {
-        date: new Date(
+        id,
+        transferUserId:
+          type === 'Transfer' ? `#${transactionIdCounter - 1}` : null,
+        timestamp: new Date(
           startDate.getFullYear(),
           startDate.getMonth(),
           startDate.getDate() - i
-        ).toLocaleDateString('en-GB'),
-        transactionId,
-        country: `${country.flag} ${country.name}`,
-        status,
+        ).toLocaleString('en-GB'),
+        nonce: Math.floor(Math.random() * 1000),
+        previousBalance: formatCurrency(amount - (i + 1) * 10.0),
         type,
-        description: `Product ${i + 1}`,
+        status,
         amount: formattedAmount,
         statusClass: status.toLowerCase(),
         typeClass: type.toLowerCase()
@@ -92,8 +73,8 @@ const Transactions = () => {
 
   const sortTransactionsByDate = () => {
     const sorted = [...sortedTransactions].sort((a, b) => {
-      const dateA = new Date(a.date).getTime();
-      const dateB = new Date(b.date).getTime();
+      const dateA = new Date(a.timestamp).getTime();
+      const dateB = new Date(b.timestamp).getTime();
       return sortAscending ? dateA - dateB : dateB - dateA;
     });
     setSortedTransactions(sorted);
@@ -116,33 +97,35 @@ const Transactions = () => {
         <TableHead className="table-head">
           <TableRow>
             <TableCell sx={{ display: 'flex' }}>
-              Date{' '}
+              Timestamp{' '}
               <SwapVertIcon
                 onClick={sortTransactionsByDate}
                 sx={{ cursor: 'pointer', marginLeft: '.5rem' }}
               />
             </TableCell>
-            <TableCell>Transaction ID</TableCell>
-            <TableCell>Country</TableCell>
-            <TableCell>Status</TableCell>
+            <TableCell>ID</TableCell>
+            <TableCell>Transfer User ID</TableCell>
+            <TableCell>Nonce</TableCell>
             <TableCell>Type</TableCell>
-            <TableCell>Description</TableCell>
+            <TableCell>Status</TableCell>
+            <TableCell>Previous Balance</TableCell>
             <TableCell>Amount</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {displayedTransactions.map((transaction) => (
-            <TableRow key={transaction.transactionId}>
-              <TableCell>{transaction.date}</TableCell>
-              <TableCell>{transaction.transactionId}</TableCell>
-              <TableCell>{transaction.country}</TableCell>
-              <TableCell className={transaction.statusClass}>
-                {transaction.status}
-              </TableCell>
+            <TableRow key={transaction.id}>
+              <TableCell>{transaction.timestamp}</TableCell>
+              <TableCell>{transaction.id}</TableCell>
+              <TableCell>{transaction.transferUserId}</TableCell>
+              <TableCell>{transaction.nonce}</TableCell>
               <TableCell className={transaction.typeClass}>
                 {transaction.type}
               </TableCell>
-              <TableCell>{transaction.description}</TableCell>
+              <TableCell className={transaction.statusClass}>
+                {transaction.status}
+              </TableCell>
+              <TableCell>{transaction.previousBalance}</TableCell>
               <TableCell>{transaction.amount}</TableCell>
             </TableRow>
           ))}
