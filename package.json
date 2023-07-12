@@ -31,8 +31,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate:template-api": "API_NAME='user-api' && openapi --input ./${API_NAME}/${API_NAME}.yml --output ./src/openapi/${API_NAME}",
-    "generate-all": "run-p generate:*"
+    "generate:template-api": "API_NAME='user-api' && openapi --input ./user-api/user-api.yml --output ./src/openapi/",
+    "generate-all": "run-p generate:*",
+    "generate:api": "openapi --input user-api/user-api.yml --output ./src/api"
   },
   "eslintConfig": {
     "extends": [
@@ -53,8 +54,10 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "16.18.23",
     "eslint-plugin-prettier": "^4.2.1",
     "npm-run-all": "^4.1.5",
-    "openapi-typescript-codegen": "^0.24.0"
+    "openapi-typescript-codegen": "0.24.0",
+    "typescript": "4.9.4"
   }
 }
