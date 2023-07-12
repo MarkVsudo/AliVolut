@@ -61,7 +61,7 @@ const Blog = () => {
               </p>
               <h5>
                 Read more
-                <ArrowForwardIosIcon className="arrowBlog" />{' '}
+                <ArrowForwardIosIcon className="arrow-blog" />{' '}
               </h5>
             </SwiperSlide>
             <SwiperSlide>
@@ -76,7 +76,7 @@ const Blog = () => {
               </p>
               <h5>
                 Read more
-                <ArrowForwardIosIcon className="arrowBlog" />{' '}
+                <ArrowForwardIosIcon className="arrow-blog" />{' '}
               </h5>
             </SwiperSlide>
           </Swiper>
@@ -102,7 +102,7 @@ const Blog = () => {
               </p>
               <h5>
                 Read more
-                <ArrowForwardIosIcon className="arrowBlog" />{' '}
+                <ArrowForwardIosIcon className="arrow-blog" />{' '}
               </h5>
             </SwiperSlide>
             <SwiperSlide>
@@ -117,7 +117,7 @@ const Blog = () => {
               </p>
               <h5>
                 Read more
-                <ArrowForwardIosIcon className="arrowBlog" />{' '}
+                <ArrowForwardIosIcon className="arrow-blog" />{' '}
               </h5>
             </SwiperSlide>
             <SwiperSlide>
@@ -132,12 +132,12 @@ const Blog = () => {
               </p>
               <h5>
                 Read more
-                <ArrowForwardIosIcon className="arrowBlog" />{' '}
+                <ArrowForwardIosIcon className="arrow-blog" />{' '}
               </h5>
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="subContainer-3">
+        <div className="sub-container-3">
           <h5>Real Estate</h5>
           <Swiper
             effect="cards"
@@ -157,7 +157,7 @@ const Blog = () => {
               </p>
               <h5>
                 Read more
-                <ArrowForwardIosIcon className="arrowBlog" />{' '}
+                <ArrowForwardIosIcon className="arrow-blog" />{' '}
               </h5>
             </SwiperSlide>
             <SwiperSlide>
@@ -171,7 +171,7 @@ const Blog = () => {
               </p>
               <h5>
                 Read more
-                <ArrowForwardIosIcon className="arrowBlog" />{' '}
+                <ArrowForwardIosIcon className="arrow-blog" />{' '}
               </h5>
             </SwiperSlide>
             <SwiperSlide>
@@ -186,7 +186,7 @@ const Blog = () => {
               </p>
               <h5>
                 Read more
-                <ArrowForwardIosIcon className="arrowBlog" />{' '}
+                <ArrowForwardIosIcon className="arrow-blog" />{' '}
               </h5>
             </SwiperSlide>
           </Swiper>
