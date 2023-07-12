@@ -1,0 +1,489 @@
+---
+openapi: 3.0.0
+
+info:
+  version: 1.0.0
+  title: Template Service
+  description: This is a Template YAML For Iuvo Microservices
+
+servers:
+  - url: http://localhost:8080
+    description: Local machine
+
+tags:
+  - name: "Users"
+    description: All user methods
+  - name: "System"
+    description: All system methods
+paths:
+  /api/system/health:
+    get:
+      summary: This is a healtheck method
+      description: This method returns a 200 respponse for healthceck purposes
+      tags:
+        - "System"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: string
+  /api/system/info:
+    get:
+      summary: This is a version method
+      description: This method returns the current application version
+      tags:
+        - "System"
+      responses:
+        "200":
+          $ref: "#/components/responses/SystemInfoResponse"
+  /api/users:
+    get:
+      summary: This is a method to get current user info
+      description: Get current user info
+      tags:
+        - "Users"
+      operationId: getUserInfo
+      security:
+        - BearerAuth: [ ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+
+  /api/users/{id}:
+    get:
+      summary: This is a method retrieving user by id
+      description: Get user by id
+      tags:
+        - "Users"
+      operationId: getUserId
+      security:
+        - BearerAuth: [ ]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The ID of the user to retrieve
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    put:
+      summary: This is a method which updates user info
+      description: Update user info
+      tags:
+        - "Users"
+      operationId: updatedUserInfo
+      security:
+        - BearerAuth: [ ]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            description: The ID of the user to update
+      requestBody:
+        description: The updated user information
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Users"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+
+  /api/users/{userId}/avatar:
+
+    post:
+      summary: Upload avatar for user
+      description: Upload an avatar for a user with the given ID
+      tags:
+        - "Users"
+      operationId: uploadAvatar
+      security:
+        - BearerAuth: [ ]
+      requestBody:
+        description: This is request body allows us to upload a avatar
+        required: true
+        content:
+          image/png:
+            schema:
+              $ref: "#/components/schemas/File"
+
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The ID of the user
+      responses:
+        "201":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+
+
+    get:
+      summary: This is a method retrieving user avatar
+      description: Retrieve the avatar for a user with the given ID
+      tags:
+        - "Users"
+      operationId: getUserAvatar
+      security:
+        - BearerAuth: [ ]
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The ID of the user
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+
+
+  /api/users/{userId}/pid:
+
+
+    post:
+      summary: Upload PID for user
+      description: Upload a PID for a user with the given ID
+      tags:
+        - "Users"
+      operationId: uploadUserPid
+      security:
+        - BearerAuth: [ ]
+      requestBody:
+        description: This is request body allows us to upload pid
+        required: true
+        content:
+          image/png:
+            schema:
+              $ref: "#/components/schemas/File"
+
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The ID of the user
+      responses:
+        "201":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+
+
+    get:
+      summary: Get user PID
+      description: Retrieve the PID for a user with the given ID
+      tags:
+        - "Users"
+      operationId: getUserPID
+      security:
+        - BearerAuth: [ ]
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The ID of the user
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    InfoHolder:
+      description: This is a object holding the version information
+      type: object
+      properties:
+        appBuildversion:
+          type: string
+        appBuildTime:
+          type: string
+    ErrorResponse:
+      description: This is the response object in case of errors, compliant with RFC7807
+      type: object
+      properties:
+        error:
+          $ref: "#/components/schemas/ErrorData"
+    ErrorData:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+    Template:
+      description: This is a Template object
+      type: object
+      properties:
+        foo:
+          type: string
+        bar:
+          type: string
+      discriminator:
+        propertyName: foo
+    TemplateFull:
+      description: This is a TemplateChild object that extends Template
+      allOf:
+        - $ref: "#/components/schemas/Template"
+      properties:
+        id:
+          type: integer
+    TemplateResponse:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/TemplateFull"
+        error:
+          $ref: "#/components/schemas/ErrorData"
+    TemplateListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/TemplateFull"
+        error:
+          $ref: "#/components/schemas/ErrorData"
+    Users:
+      description: This is a Users object
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        address1:
+          type: string
+        address2:
+          type: string
+        postcode:
+          type: string
+        avatar:
+          type: string
+        pid:
+          type: string
+      required:
+        - id
+        - username
+        - firstname
+        - lastname
+        - address1
+        - postcode
+        - avatar
+        - pid
+
+
+    UserUpdateRequest:
+      description: This is update object
+      type: object
+      properties:
+        username:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        address1:
+          type: string
+        address2:
+          type: string
+        postcode:
+          type: string
+        avatar:
+          type: string
+        pid:
+          type: string
+      required:
+        - username
+        - firstname
+        - lastname
+        - address1
+        - postcode
+        - avatar
+        - pid
+
+    UserResponse:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/Users"
+        error:
+          $ref: "#/components/schemas/ErrorData"
+
+    File:
+      type: object
+      properties:
+        avatar:
+          type: string
+          format: binary
+
+    FileResponse:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/File"
+        error:
+          $ref: "#/components/schemas/ErrorData"
+
+  responses:
+    SystemInfoResponse:
+      description: "System Version Response"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: "#/components/schemas/InfoHolder"
+    BadRequest:
+      description: "BAD REQUEST"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    Unauthorized:
+      description: "UNAUTHORIZED"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    Forbidden:
+      description: "FORBIDDEN"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    NotFound:
+      description: "NOT FOUND"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    InternalServerError:
+      description: "INTERNAL SERVER ERROR"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+security:
+  - BearerAuth: []
