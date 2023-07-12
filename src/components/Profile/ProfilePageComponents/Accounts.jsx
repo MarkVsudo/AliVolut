@@ -182,7 +182,7 @@ const Accounts = () => {
     <div className="account-block">
       <div className="account-head">
         <div className="amount-plus-curr">
-          <span className="amount-main-acc">${totalAmount.toFixed(2)}</span>
+          <span className="amount-main-acc">&#36;{totalAmount.toFixed(2)}</span>
           <div className="currency">
             <img src={USAflag} alt="USA flag" />
             <span>Total balance in {transferCurrency}</span>
