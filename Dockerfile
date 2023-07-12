@@ -5,7 +5,7 @@ WORKDIR /app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY ./ /app
-
+RUN mv .env .env.old && mv .env.prod .env
 RUN npm install
 
 RUN npm run build
