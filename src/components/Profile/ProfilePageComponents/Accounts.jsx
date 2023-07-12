@@ -221,9 +221,9 @@ const Accounts = () => {
                 <span className="acc-type">{account.type}</span>
                 <span className="acc-curr">{account.currency}</span>
                 <span className="acc-amount">
-                  {account.currency === 'USD' && ' $'}
-                  {account.currency === 'EUR' && ' €'}
-                  {account.currency === 'GBP' && ' £'}
+                  {account.currency === 'USD' && <span>&#36;</span>}
+                  {account.currency === 'EUR' && <span>&#8364;</span>}
+                  {account.currency === 'GBP' && <span>&#163;</span>}
                   {account.amount}
                 </span>
               </div>
@@ -265,9 +265,9 @@ const Accounts = () => {
               fullWidth
               margin="normal"
             >
-              <MenuItem value="USD">$ USD</MenuItem>
-              <MenuItem value="EUR">€ EUR</MenuItem>
-              <MenuItem value="GBP">£ GBP</MenuItem>
+              <MenuItem value="USD">&#36; USD</MenuItem>
+              <MenuItem value="EUR">&#8364; EUR</MenuItem>
+              <MenuItem value="GBP">&#163; GBP</MenuItem>
             </Select>
             <TextField
               label="User ID"
@@ -311,9 +311,9 @@ const Accounts = () => {
               fullWidth
               margin="normal"
             >
-              <MenuItem value="USD">$ USD</MenuItem>
-              <MenuItem value="EUR">€ EUR</MenuItem>
-              <MenuItem value="GBP">£ GBP</MenuItem>
+              <MenuItem value="USD">&#36; USD</MenuItem>
+              <MenuItem value="EUR">&#8364; EUR</MenuItem>
+              <MenuItem value="GBP">&#163; GBP</MenuItem>
             </Select>
             <div className="payment-providers">
               <h3>Select Payment Provider:</h3>
@@ -380,9 +380,9 @@ const Accounts = () => {
               fullWidth
               margin="normal"
             >
-              <MenuItem value="USD">$ USD</MenuItem>
-              <MenuItem value="EUR">€ EUR</MenuItem>
-              <MenuItem value="GBP">£ GBP</MenuItem>
+              <MenuItem value="USD">&#36; USD</MenuItem>
+              <MenuItem value="EUR">&#8364; EUR</MenuItem>
+              <MenuItem value="GBP">&#163; GBP</MenuItem>
             </Select>
             <Button
               onClick={handleWithdraw}
@@ -419,9 +419,9 @@ const Accounts = () => {
               fullWidth
               margin="normal"
             >
-              <MenuItem value="USD">$ USD</MenuItem>
-              <MenuItem value="EUR">€ EUR</MenuItem>
-              <MenuItem value="GBP">£ GBP</MenuItem>
+              <MenuItem value="USD">&#36; USD</MenuItem>
+              <MenuItem value="EUR">&#8364; EUR</MenuItem>
+              <MenuItem value="GBP">&#163; GBP</MenuItem>
             </Select>
             <Button
               onClick={handleCreateAccount}
