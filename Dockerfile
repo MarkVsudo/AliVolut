@@ -8,7 +8,7 @@ COPY ./ /app
 RUN mv .env .env.old && mv .env.prod .env
 RUN npm install
 
-RUN npm run build
+RUN npm run start
 
 FROM nginx
 COPY --from=build /app/build /usr/share/nginx/html
