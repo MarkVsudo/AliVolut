@@ -57,7 +57,6 @@ const Transactions = () => {
           startDate.getDate() - i
         ).toLocaleString('en-GB'),
         nonce: Math.floor(Math.random() * 1000),
-        change: Math.random() > 0.5 ? 'Positive' : 'Negative',
         previousBalance: formatCurrency(amount - (i + 1) * 10.0),
         type,
         status,
@@ -107,7 +106,6 @@ const Transactions = () => {
             <TableCell>ID</TableCell>
             <TableCell>Transfer User ID</TableCell>
             <TableCell>Nonce</TableCell>
-            <TableCell>Change</TableCell>
             <TableCell>Type</TableCell>
             <TableCell>Status</TableCell>
             <TableCell>Previous Balance</TableCell>
@@ -121,7 +119,6 @@ const Transactions = () => {
               <TableCell>{transaction.id}</TableCell>
               <TableCell>{transaction.transferUserId}</TableCell>
               <TableCell>{transaction.nonce}</TableCell>
-              <TableCell>{transaction.change}</TableCell>
               <TableCell className={transaction.typeClass}>
                 {transaction.type}
               </TableCell>
