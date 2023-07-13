@@ -38,7 +38,7 @@ const Transactions = () => {
       return `$${amount.toFixed(2)}`;
     };
 
-    for (let i = 0; i < 15; i += 1) {
+    for (let i = 0; i < 20; i += 1) {
       const id = `#${transactionIdCounter.toString().padStart(5, '0')}`;
       transactionIdCounter += 1;
 
