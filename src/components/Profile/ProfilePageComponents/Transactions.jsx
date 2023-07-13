@@ -55,7 +55,7 @@ const Transactions = () => {
           startDate.getFullYear(),
           startDate.getMonth(),
           startDate.getDate() - i
-        ).toLocaleString('en-GB'),
+        ).toLocaleString('en-US', { timeZone: 'UTC' }),
         nonce: Math.floor(Math.random() * 1000),
         previousBalance: formatCurrency(amount - (i + 1) * 10.0),
         type,

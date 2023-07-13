@@ -22,7 +22,6 @@ const App = () => {
         console.error('Failed to fetch user info:', error);
       }
     };
-
     fetchUserInfo();
   }, []);
 
