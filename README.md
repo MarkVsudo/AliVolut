@@ -1,4 +1,4 @@
-#The website is hosted on the cloud at : https://platform-ui.thepineslab.net/
+# The website is hosted on the cloud at : https://platform-ui.thepineslab.net/
 
 # fe-template-react
 
