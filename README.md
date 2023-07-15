@@ -1,3 +1,5 @@
+#The website is hosted on the cloud at : https://platform-ui.thepineslab.net/
+
 # fe-template-react
 
 This project is an React-based frontend template leveraging React 18.2.0. Our focus is on code quality. We utilize OpenAPI specifications to generate the models and services required for a smooth frontend-to-backend communication.
